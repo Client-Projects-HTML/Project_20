@@ -80,8 +80,3 @@ Pricing for this visual, package-priced business.
 - Before/after drag-compare slider (Projects & Home)
 - FAQ accordion, testimonial slider, animated stat counters, scroll-reveal animations
 
-## Before Launch
-- Replace `picsum.photos` placeholder images with real project photography.
-- Wire the quote/contact forms to a real backend (see `installation-guide.md`).
-- Replace the Google Map embed URL with your exact office coordinates.
-- Replace `colorcraft-example.com` in `robots.txt` / `sitemap.xml` with your real domain.
