@@ -1,0 +1,55 @@
+/* ============================================================
+   ColorCraft — Responsive Rules
+   Mobile-first adjustments layered on top of style.css
+   ============================================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .color-swatch-grid { grid-template-columns: repeat(4, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); row-gap: 30px; }
+  .process-track { grid-template-columns: repeat(3, 1fr); row-gap: 30px; }
+  .process-track::before { display: none; }
+  .hero-swatches { display: none; }
+}
+
+/* Small tablet / large phone */
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; align-items: center; justify-content: center; }
+  .nav-links.mobile-open {
+    display: flex;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: var(--color-white);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 24px 28px;
+    gap: 18px;
+    box-shadow: var(--shadow-md);
+  }
+  .grid-2 { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  section { padding: 64px 0; }
+}
+
+/* Phone */
+@media (max-width: 640px) {
+  .grid-4, .grid-3 { grid-template-columns: 1fr 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .color-swatch-grid { grid-template-columns: repeat(3, 1fr); }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .process-track { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .hero-content { padding-top: 70px; }
+  .hero-actions .btn { width: 100%; }
+  .hero-actions { flex-direction: column; }
+  .lightbox-prev, .lightbox-next { width: 40px; height: 40px; font-size: 1rem; }
+  .pricing-card.featured { transform: none; }
+  .btn { min-height: 44px; }
+  .nav-links a, .icon-toggle, .nav-toggle, .btn { min-height: 44px; }
+}

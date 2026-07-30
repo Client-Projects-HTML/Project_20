@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root {
+  --adm-font-display: 'Poppins', sans-serif;
+  --adm-font-body: 'Montserrat', sans-serif;
+
+  --adm-bg: #F8F9FA;
+  --adm-surface: #ffffff;
+  --adm-text: #212529;
+  --adm-text-muted: #6C757D;
+  --adm-border: #E9ECEF;
+  --adm-row-hover: #F8F9FA;
+
+  --adm-primary: #0F4C81;
+  --adm-primary-dark: #0A3760;
+
+  --adm-accent: #F4A261;
+  --adm-accent-strong: #0F4C81;
+  --adm-accent-soft: #E5EEF5;
+  --adm-on-accent: #212529;
+
+  --adm-sidebar-bg: #0A3760;
+  --adm-sidebar-text: #F8F9FA;
+
+  --adm-radius-sm: 6px;
+  --adm-radius-md: 14px;
+  --adm-radius-lg: 24px;
+}
+/* ===================================================
+   COLORCRAFT PREMIUM LOGIN PAGE
+=================================================== */
+
+body[data-page="login"]{
+    margin:0;
+    font-family:"Poppins",sans-serif;
+    min-height:100vh;
+    background-image:
+        linear-gradient(rgba(15,23,42,.45),rgba(15,23,42,.45)),
+        url("../images/login-bg.jpg") !important;
+    background-position:center center !important;
+    background-size:cover !important;
+    background-repeat:no-repeat !important;
+    background-attachment:fixed !important;
+}
+
+.adm-login-wrap{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:30px;
+    position:relative;
+    background: transparent !important;
+}
+
+.adm-login-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        135deg,
+        rgba(15,23,42,.85),
+        rgba(30,41,59,.75)
+    );
+}
+
+.adm-login-card{
+    position:relative;
+    z-index:10;
+    width:100%;
+    max-width:480px;
+    padding:45px;
+    border-radius:24px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 25px 70px rgba(0,0,0,.35);
+}
+
+.adm-login-brand{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.adm-mark{
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    margin:auto;
+    background:linear-gradient(135deg,#f97316,#fb923c);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    color:#fff;
+    box-shadow:0 10px 25px rgba(249,115,22,.45);
+}
+
+.adm-login-brand h1{
+    color:#fff;
+    font-size:32px;
+    margin:18px 0 5px;
+    font-weight:700;
+}
+
+.adm-login-brand h2{
+    color:#f97316;
+    font-size:20px;
+    margin-bottom:12px;
+}
+
+.adm-login-brand p{
+    color:#d1d5db;
+    line-height:1.7;
+    font-size:14px;
+}
+
+.adm-field{
+    margin-bottom:22px;
+}
+
+.adm-field label{
+    display:block;
+    color:#fff;
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:500;
+}
+
+.adm-input-group{
+    position:relative;
+}
+
+.adm-input-group>i:first-child{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#f97316;
+}
+
+.adm-input-group input{
+    width:100%;
+    height:55px;
+    padding:0 50px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    font-size:15px;
+    outline:none;
+    transition:.3s;
+    box-sizing:border-box;
+}
+
+.adm-input-group input::placeholder{
+    color:#cbd5e1;
+}
+
+.adm-input-group input:focus{
+    border-color:#f97316;
+    background:rgba(255,255,255,.12);
+}
+
+.adm-password-toggle{
+    position:absolute;
+    right:18px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#f97316;
+}
+
+.adm-check-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+    color:#fff;
+    font-size:14px;
+}
+
+.adm-check-row a{
+    color:#f97316;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.adm-btn-primary{
+    width:100%;
+    height:55px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(135deg,#f97316,#ea580c);
+    color:#fff;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.adm-btn-primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 25px rgba(249,115,22,.45);
+}
+
+.adm-btn-outline{
+    width:100%;
+    height:55px;
+    margin-top:15px;
+    border-radius:14px;
+    border:2px solid rgba(255,255,255,.2);
+    background:transparent;
+    color:#fff;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.adm-btn-outline:hover{
+    background:rgba(255,255,255,.08);
+}
+
+.adm-back-home{
+    display:block;
+    margin-top:22px;
+    text-align:center;
+    color:#f97316;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.adm-login-footer{
+    margin-top:35px;
+    text-align:center;
+}
+
+.adm-login-footer p{
+    color:#fff;
+    margin-bottom:6px;
+    font-weight:600;
+}
+
+.adm-login-footer span{
+    color:#cbd5e1;
+    font-size:13px;
+}
+
+.adm-login-error{
+    display:none;
+    margin-bottom:20px;
+    padding:12px;
+    border-radius:10px;
+    background:#dc2626;
+    color:#fff;
+}
+
+.adm-login-error.show{
+    display:block;
+}
+
+@media(max-width:768px){
+
+    .adm-login-card{
+        padding:30px;
+    }
+
+    .adm-login-brand h1{
+        font-size:28px;
+    }
+
+    .adm-mark{
+        width:70px;
+        height:70px;
+        font-size:28px;
+    }
+
+}

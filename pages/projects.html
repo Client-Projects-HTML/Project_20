@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | ColorCraft</title>
+<meta name="description" content="Browse ColorCraft's portfolio of interior, exterior, commercial, residential and waterproofing projects with before/after photos.">
+<meta property="og:title" content="Projects | ColorCraft">
+<meta property="og:description" content="Browse ColorCraft's portfolio of interior, exterior, commercial, residential and waterproofing projects with before/after photos.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/responsive.css">
+<link rel="stylesheet" href="../assets/css/dark-mode.css">
+<link rel="stylesheet" href="../assets/css/rtl.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container navbar">
+    <a href="index.html" class="brand"><span class="brand-chip"></span>ColorCraft</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" >Home</a>
+      <a href="services.html" >Services</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="gallery.html" >Gallery</a>
+      <a href="pricing.html" >Pricing</a>
+      <a href="about.html" >About</a>
+      <a href="contact.html" >Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-toggle" data-theme-toggle aria-label="Toggle dark mode"><i class="bi bi-moon-stars"></i></button>
+      <button class="icon-toggle" data-rtl-toggle aria-label="Toggle right-to-left layout"><i class="bi bi-text-right"></i></button>
+      <a href="quote.html" class="btn btn-primary btn-sm">Get Free Quote</a>
+                <a href="../admin/login.html" class="btn btn-secondary btn-sm admin-link">
+        <i class="fa-solid fa-user-shield"></i> Admin
+    </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><i class="bi bi-list"></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="page-banner">
+    <div class="container">
+      <h1>Our Projects</h1>
+      <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Projects</span></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="filter-tabs" data-filter-group="#projects-grid">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="interior">Interior</button>
+        <button data-filter="exterior">Exterior</button>
+        <button data-filter="commercial">Commercial</button>
+        <button data-filter="residential">Residential</button>
+        <button data-filter="waterproofing">Waterproofing</button>
+      </div>
+
+      <div class="grid-3" id="projects-grid">
+        <div class="project-card reveal" data-category="interior residential">
+          <div class="ba-compare">
+            <div class="after-img" style="background-image:url('https://picsum.photos/seed/pj-after-1/500/400')"></div>
+            <div class="before-img"><div style="background-image:url('https://picsum.photos/seed/pj-before-1/500/400')"></div></div>
+            <span class="ba-label before">Before</span><span class="ba-label after">After</span><div class="ba-handle"><i class="bi bi-arrows"></i></div>
+          </div>
+          <div class="project-info"><span class="tag">Residential · Interior</span><h3>Whitefield Villa Living Room</h3><p style="color:var(--color-gray-600);font-size:0.9rem;">Full repaint in warm neutrals with a teal accent wall.</p></div>
+        </div>
+        <div class="project-card reveal" data-category="exterior commercial">
+          <div class="ba-compare">
+            <div class="after-img" style="background-image:url('https://picsum.photos/seed/pj-after-2/500/400')"></div>
+            <div class="before-img"><div style="background-image:url('https://picsum.photos/seed/pj-before-2/500/400')"></div></div>
+            <span class="ba-label before">Before</span><span class="ba-label after">After</span><div class="ba-handle"><i class="bi bi-arrows"></i></div>
+          </div>
+          <div class="project-info"><span class="tag">Commercial · Exterior</span><h3>Lakeview Office Facade</h3><p style="color:var(--color-gray-600);font-size:0.9rem;">Weatherproof exterior repaint completed over one weekend.</p></div>
+        </div>
+        <div class="project-card reveal" data-category="waterproofing residential">
+          <div class="ba-compare">
+            <div class="after-img" style="background-image:url('https://picsum.photos/seed/pj-after-3/500/400')"></div>
+            <div class="before-img"><div style="background-image:url('https://picsum.photos/seed/pj-before-3/500/400')"></div></div>
+            <span class="ba-label before">Before</span><span class="ba-label after">After</span><div class="ba-handle"><i class="bi bi-arrows"></i></div>
+          </div>
+          <div class="project-info"><span class="tag">Residential · Waterproofing</span><h3>Rosewood Terrace Coating</h3><p style="color:var(--color-gray-600);font-size:0.9rem;">Stopped a two-year seepage issue with membrane coating.</p></div>
+        </div>
+        <div class="project-card reveal" data-category="interior commercial">
+          <div class="ba-compare">
+            <div class="after-img" style="background-image:url('https://picsum.photos/seed/pj-after-4/500/400')"></div>
+            <div class="before-img"><div style="background-image:url('https://picsum.photos/seed/pj-before-4/500/400')"></div></div>
+            <span class="ba-label before">Before</span><span class="ba-label after">After</span><div class="ba-handle"><i class="bi bi-arrows"></i></div>
+          </div>
+          <div class="project-info"><span class="tag">Commercial · Interior</span><h3>Hoshangabad Rd Café Fit-Out</h3><p style="color:var(--color-gray-600);font-size:0.9rem;">Textured accent walls and enamel trim for a new café.</p></div>
+        </div>
+        <div class="project-card reveal" data-category="exterior residential">
+          <div class="ba-compare">
+            <div class="after-img" style="background-image:url('https://picsum.photos/seed/pj-after-5/500/400')"></div>
+            <div class="before-img"><div style="background-image:url('https://picsum.photos/seed/pj-before-5/500/400')"></div></div>
+            <span class="ba-label before">Before</span><span class="ba-label after">After</span><div class="ba-handle"><i class="bi bi-arrows"></i></div>
+          </div>
+          <div class="project-info"><span class="tag">Residential · Exterior</span><h3>Kolar Road Bungalow</h3><p style="color:var(--color-gray-600);font-size:0.9rem;">Two-tone facade repaint with metal gate refinishing.</p></div>
+        </div>
+        <div class="project-card reveal" data-category="waterproofing commercial">
+          <div class="ba-compare">
+            <div class="after-img" style="background-image:url('https://picsum.photos/seed/pj-after-6/500/400')"></div>
+            <div class="before-img"><div style="background-image:url('https://picsum.photos/seed/pj-before-6/500/400')"></div></div>
+            <span class="ba-label before">Before</span><span class="ba-label after">After</span><div class="ba-handle"><i class="bi bi-arrows"></i></div>
+          </div>
+          <div class="project-info"><span class="tag">Commercial · Waterproofing</span><h3>Arera Colony Warehouse Roof</h3><p style="color:var(--color-gray-600);font-size:0.9rem;">Industrial-grade waterproof coating across 8,000 sq.ft.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white">
+    <div class="container">
+      <div class="cta-band reveal">
+        <h2>Have a similar project in mind?</h2>
+        <a href="quote.html" class="btn btn-primary">Get Free Quote</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<button class="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+<div class="toast"><strong>Title</strong><span>Message</span></div>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/quote.js"></script>
+<script src="../assets/js/gallery.js"></script>
+</body>
+</html>

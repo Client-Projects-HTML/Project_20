@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon | ColorCraft</title>
+<meta name="description" content="A new ColorCraft experience is on its way. Subscribe to be notified at launch.">
+<meta property="og:title" content="Coming Soon | ColorCraft">
+<meta property="og:description" content="A new ColorCraft experience is on its way. Subscribe to be notified at launch.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/responsive.css">
+<link rel="stylesheet" href="../assets/css/dark-mode.css">
+<link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container navbar">
+    <a href="index.html" class="brand"><span class="brand-chip"></span>ColorCraft</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" >Home</a>
+      <a href="services.html" >Services</a>
+      <a href="projects.html" >Projects</a>
+      <a href="gallery.html" >Gallery</a>
+      <a href="pricing.html" >Pricing</a>
+      <a href="about.html" >About</a>
+      <a href="contact.html" >Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-toggle" data-theme-toggle aria-label="Toggle dark mode"><i class="bi bi-moon-stars"></i></button>
+      <button class="icon-toggle" data-rtl-toggle aria-label="Toggle right-to-left layout"><i class="bi bi-text-right"></i></button>
+      <a href="quote.html" class="btn btn-primary btn-sm">Get Free Quote</a>
+      <a href="../admin/login.html" class="btn btn-secondary btn-sm admin-link"><i class="fa-solid fa-user-shield"></i> Admin</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><i class="bi bi-list"></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="coming-soon-page">
+    <div class="container" style="max-width:640px;">
+      <span class="eyebrow" style="justify-content:center;">Something New</span>
+      <h1>This Page Is Getting a Fresh Coat</h1>
+      <p style="color:var(--color-gray-600);font-size:1.05rem;">We're building a new experience here. Leave your email and we'll let you know the moment it's ready.</p>
+      <div class="countdown">
+        <div class="box"><div class="n" id="cd-days">00</div><div class="l">Days</div></div>
+        <div class="box"><div class="n" id="cd-hours">00</div><div class="l">Hours</div></div>
+        <div class="box"><div class="n" id="cd-mins">00</div><div class="l">Minutes</div></div>
+        <div class="box"><div class="n" id="cd-secs">00</div><div class="l">Seconds</div></div>
+      </div>
+      <form class="newsletter-form" data-validate style="max-width:420px;margin:0 auto;">
+        <input type="email" class="form-control" placeholder="Your email address" required>
+        <button class="btn btn-primary" type="submit">Notify Me</button>
+      </form>
+      <a href="index.html" class="btn btn-secondary" style="border-color:var(--color-primary);color:var(--color-primary);margin-top:30px;display:inline-flex;">Back to Home</a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var target = new Date();
+      target.setDate(target.getDate() + 14);
+      function tick() {
+        var diff = Math.max(0, target - new Date());
+        var d = Math.floor(diff / (1000*60*60*24));
+        var h = Math.floor((diff / (1000*60*60)) % 24);
+        var m = Math.floor((diff / (1000*60)) % 60);
+        var s = Math.floor((diff / 1000) % 60);
+        document.getElementById("cd-days").textContent = String(d).padStart(2,"0");
+        document.getElementById("cd-hours").textContent = String(h).padStart(2,"0");
+        document.getElementById("cd-mins").textContent = String(m).padStart(2,"0");
+        document.getElementById("cd-secs").textContent = String(s).padStart(2,"0");
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
+</main>
+
+
+<button class="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+<div class="toast"><strong>Title</strong><span>Message</span></div>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/quote.js"></script>
+<script src="../assets/js/gallery.js"></script>
+</body>
+</html>
