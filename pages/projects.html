@@ -26,13 +26,24 @@
   <div class="container navbar">
     <a href="index.html" class="brand"><span class="brand-chip"></span>ColorCraft</a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="index.html" >Home</a>
+      <ul class="nav-links">
+    <li class="nav-dropdown">
+        <a href="index.html">Home</a>
+
+        <div class="dropdown-panel">
+            <a href="index.html" class="active">Home – Classic</a>
+            <a href="home-2.html">Home – Premium</a>
+        </div>
+    </li>
+</ul>
+
+      <a href="about.html" >About</a>
       <a href="services.html" >Services</a>
-      <a href="projects.html" class="active">Projects</a>
+      <a href="projects.html" >Projects</a>
       <a href="gallery.html" >Gallery</a>
       <a href="pricing.html" >Pricing</a>
-      <a href="about.html" >About</a>
       <a href="contact.html" >Contact</a>
+      <a href="faq.html" >FAQ</a>
     </nav>
     <div class="nav-actions">
       <button class="icon-toggle" data-theme-toggle aria-label="Toggle dark mode"><i class="bi bi-moon-stars"></i></button>
@@ -68,48 +79,48 @@
       <div class="grid-3" id="projects-grid">
         <div class="project-card reveal" data-category="interior residential">
           <div class="ba-compare">
-            <div class="after-img" style="background-image:url('https://picsum.photos/seed/pj-after-1/500/400')"></div>
-            <div class="before-img"><div style="background-image:url('https://picsum.photos/seed/pj-before-1/500/400')"></div></div>
+            <div class="after-img" style="background-image:url('../assets/images/projects/villa1.jpg')"></div>
+            <div class="before-img"><div style="background-image:url('../assets/images/projects/villa.png')"></div></div>
             <span class="ba-label before">Before</span><span class="ba-label after">After</span><div class="ba-handle"><i class="bi bi-arrows"></i></div>
           </div>
           <div class="project-info"><span class="tag">Residential · Interior</span><h3>Whitefield Villa Living Room</h3><p style="color:var(--color-gray-600);font-size:0.9rem;">Full repaint in warm neutrals with a teal accent wall.</p></div>
         </div>
         <div class="project-card reveal" data-category="exterior commercial">
           <div class="ba-compare">
-            <div class="after-img" style="background-image:url('https://picsum.photos/seed/pj-after-2/500/400')"></div>
-            <div class="before-img"><div style="background-image:url('https://picsum.photos/seed/pj-before-2/500/400')"></div></div>
+            <div class="after-img" style="background-image:url('../assets/images/projects/Lakeview.jpg')"></div>
+            <div class="before-img"><div style="background-image:url('../assets/images/projects/Lakeview.jpg')"></div></div>
             <span class="ba-label before">Before</span><span class="ba-label after">After</span><div class="ba-handle"><i class="bi bi-arrows"></i></div>
           </div>
           <div class="project-info"><span class="tag">Commercial · Exterior</span><h3>Lakeview Office Facade</h3><p style="color:var(--color-gray-600);font-size:0.9rem;">Weatherproof exterior repaint completed over one weekend.</p></div>
         </div>
         <div class="project-card reveal" data-category="waterproofing residential">
           <div class="ba-compare">
-            <div class="after-img" style="background-image:url('https://picsum.photos/seed/pj-after-3/500/400')"></div>
-            <div class="before-img"><div style="background-image:url('https://picsum.photos/seed/pj-before-3/500/400')"></div></div>
+            <div class="after-img" style="background-image:url('../assets/images/projects/terrace1.jpg')"></div>
+            <div class="before-img"><div style="background-image:url('../assets/images/projects/terrace.jpg')"></div></div>
             <span class="ba-label before">Before</span><span class="ba-label after">After</span><div class="ba-handle"><i class="bi bi-arrows"></i></div>
           </div>
           <div class="project-info"><span class="tag">Residential · Waterproofing</span><h3>Rosewood Terrace Coating</h3><p style="color:var(--color-gray-600);font-size:0.9rem;">Stopped a two-year seepage issue with membrane coating.</p></div>
         </div>
         <div class="project-card reveal" data-category="interior commercial">
           <div class="ba-compare">
-            <div class="after-img" style="background-image:url('https://picsum.photos/seed/pj-after-4/500/400')"></div>
-            <div class="before-img"><div style="background-image:url('https://picsum.photos/seed/pj-before-4/500/400')"></div></div>
+            <div class="after-img" style="background-image:url('../assets/images/projects/cafe.webp')"></div>
+            <div class="before-img"><div style="background-image:url('../assets/images/projects/cafe1.webp')"></div></div>
             <span class="ba-label before">Before</span><span class="ba-label after">After</span><div class="ba-handle"><i class="bi bi-arrows"></i></div>
           </div>
           <div class="project-info"><span class="tag">Commercial · Interior</span><h3>Hoshangabad Rd Café Fit-Out</h3><p style="color:var(--color-gray-600);font-size:0.9rem;">Textured accent walls and enamel trim for a new café.</p></div>
         </div>
         <div class="project-card reveal" data-category="exterior residential">
           <div class="ba-compare">
-            <div class="after-img" style="background-image:url('https://picsum.photos/seed/pj-after-5/500/400')"></div>
-            <div class="before-img"><div style="background-image:url('https://picsum.photos/seed/pj-before-5/500/400')"></div></div>
+            <div class="after-img" style="background-image:url('../assets/images/projects/bungalows.avif')"></div>
+            <div class="before-img"><div style="background-image:url('../assets/images/projects/bungalow2.png')"></div></div>
             <span class="ba-label before">Before</span><span class="ba-label after">After</span><div class="ba-handle"><i class="bi bi-arrows"></i></div>
           </div>
           <div class="project-info"><span class="tag">Residential · Exterior</span><h3>Kolar Road Bungalow</h3><p style="color:var(--color-gray-600);font-size:0.9rem;">Two-tone facade repaint with metal gate refinishing.</p></div>
         </div>
         <div class="project-card reveal" data-category="waterproofing commercial">
           <div class="ba-compare">
-            <div class="after-img" style="background-image:url('https://picsum.photos/seed/pj-after-6/500/400')"></div>
-            <div class="before-img"><div style="background-image:url('https://picsum.photos/seed/pj-before-6/500/400')"></div></div>
+            <div class="after-img" style="background-image:url('../assets/images/projects/ware1.jpeg')"></div>
+            <div class="before-img"><div style="background-image:url('../assets/images/projects/ware.webp')"></div></div>
             <span class="ba-label before">Before</span><span class="ba-label after">After</span><div class="ba-handle"><i class="bi bi-arrows"></i></div>
           </div>
           <div class="project-info"><span class="tag">Commercial · Waterproofing</span><h3>Arera Colony Warehouse Roof</h3><p style="color:var(--color-gray-600);font-size:0.9rem;">Industrial-grade waterproof coating across 8,000 sq.ft.</p></div>

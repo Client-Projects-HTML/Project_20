@@ -24,7 +24,6 @@ html[data-theme="dark"] .site-header { background: rgba(20, 24, 27, 0.9); }
 html[data-theme="dark"] .site-header.scrolled { border-color: var(--color-gray-200); }
 html[data-theme="dark"] .nav-links a { color: var(--color-dark); }
 html[data-theme="dark"] .icon-toggle { background: var(--color-gray-100); border-color: var(--color-gray-400); color: var(--color-secondary); }
-html[data-theme="dark"] .icon-toggle i::before { content: "\f5a2"; } /* handled in JS instead, kept as fallback */
 
 html[data-theme="dark"] .card,
 html[data-theme="dark"] .form-panel,

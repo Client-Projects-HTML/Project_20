@@ -26,13 +26,24 @@
   <div class="container navbar">
     <a href="index.html" class="brand"><span class="brand-chip"></span>ColorCraft</a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="index.html" >Home</a>
-      <a href="services.html" class="active">Services</a>
+      <ul class="nav-links">
+    <li class="nav-dropdown">
+        <a href="index.html">Home</a>
+
+        <div class="dropdown-panel">
+            <a href="index.html" class="active">Home – Classic</a>
+            <a href="home-2.html">Home – Premium</a>
+        </div>
+    </li>
+</ul>
+
+      <a href="about.html" >About</a>
+      <a href="services.html" >Services</a>
       <a href="projects.html" >Projects</a>
       <a href="gallery.html" >Gallery</a>
       <a href="pricing.html" >Pricing</a>
-      <a href="about.html" >About</a>
       <a href="contact.html" >Contact</a>
+      <a href="faq.html" >FAQ</a>
     </nav>
     <div class="nav-actions">
       <button class="icon-toggle" data-theme-toggle aria-label="Toggle dark mode"><i class="bi bi-moon-stars"></i></button>
@@ -62,39 +73,41 @@
         <p>Every service includes a free inspection, itemized quote, and a written completion date.</p>
       </div>
       <div class="grid-4">
-        <div class="service-card card reveal">
-          <div class="card-img" style="background-image:url('https://picsum.photos/seed/svc-interior/400/300')"><span class="card-chip"><i class="bi bi-house-door"></i></span></div>
-          <div class="card-body"><h3>Interior Painting</h3><p>Living rooms, bedrooms, kitchens — low-odor paint and full furniture protection.</p><div class="price">From ₹18/sq.ft</div><a href="service-details.html" class="learn">Learn More →</a></div>
+              <div class="service-card card reveal">
+          <div class="card-img" style="background-image:url('../assets/images/services/interior.webp')"><span class="card-chip"><i class="bi bi-house-door"></i></span></div>
+          <div class="card-body"><h3>Interior Painting</h3><p>Clean lines, low-odor paints, and full furniture protection for every room.</p><div class="price">From ₹18/sq.ft</div><a href="service-details.html" class="learn">Learn More →</a></div>
         </div>
         <div class="service-card card reveal">
-          <div class="card-img" style="background-image:url('https://picsum.photos/seed/svc-exterior/400/300')"><span class="card-chip"><i class="bi bi-building"></i></span></div>
-          <div class="card-body"><h3>Exterior Painting</h3><p>Weatherproof coatings built for monsoon and summer alike.</p><div class="price">From ₹24/sq.ft</div><a href="service-details.html" class="learn">Learn More →</a></div>
+          <div class="card-img" style="background-image:url('../assets/images/services/exterior.jpeg')"><span class="card-chip"><i class="bi bi-building"></i></span></div>
+          <div class="card-body"><h3>Exterior Painting</h3><p>Weather-graded coatings that hold color through every season.</p><div class="price">From ₹24/sq.ft</div><a href="service-details.html" class="learn">Learn More →</a></div>
         </div>
         <div class="service-card card reveal">
-          <div class="card-img" style="background-image:url('https://picsum.photos/seed/svc-texture/400/300')"><span class="card-chip"><i class="bi bi-brush"></i></span></div>
-          <div class="card-body"><h3>Wall Textures</h3><p>Stucco, Venetian plaster and stencil finishes for feature walls.</p><div class="price">From ₹45/sq.ft</div><a href="service-details.html" class="learn">Learn More →</a></div>
+          <div class="card-img" style="background-image:url('../assets/images/services/wall.webp')"><span class="card-chip"><i class="bi bi-brush"></i></span></div>
+          <div class="card-body"><h3>Wall Textures</h3><p>Stucco, Venetian plaster, and stencil finishes for feature walls.</p><div class="price">From ₹45/sq.ft</div><a href="service-details.html" class="learn">Learn More →</a></div>
         </div>
         <div class="service-card card reveal">
-          <div class="card-img" style="background-image:url('https://picsum.photos/seed/svc-waterproof/400/300')"><span class="card-chip"><i class="bi bi-droplet"></i></span></div>
-          <div class="card-body"><h3>Waterproof Coating</h3><p>Terrace and wall waterproofing that stops seepage at the source.</p><div class="price">From ₹32/sq.ft</div><a href="service-details.html" class="learn">Learn More →</a></div>
+          <div class="card-img" style="background-image:url('../assets/images/services/water.jpeg')"><span class="card-chip"><i class="bi bi-droplet"></i></span></div>
+          <div class="card-body"><h3>Waterproof Coating</h3><p>Terrace and wall waterproofing that stops seepage before it starts.</p><div class="price">From ₹32/sq.ft</div><a href="service-details.html" class="learn">Learn More →</a></div>
         </div>
         <div class="service-card card reveal">
-          <div class="card-img" style="background-image:url('https://picsum.photos/seed/svc-wood/400/300')"><span class="card-chip"><i class="bi bi-tree"></i></span></div>
-          <div class="card-body"><h3>Wood Polish</h3><p>Melamine and PU polish that restores grain, shine, and durability.</p><div class="price">From ₹40/sq.ft</div><a href="service-details.html" class="learn">Learn More →</a></div>
+          <div class="card-img" style="background-image:url('../assets/images/services/wood.jpg')"><span class="card-chip"><i class="bi bi-tree"></i></span></div>
+          <div class="card-body"><h3>Wood Polish</h3><p>Melamine and PU polish that brings grain and shine back to timber.</p><div class="price">From ₹40/sq.ft</div><a href="service-details.html" class="learn">Learn More →</a></div>
         </div>
         <div class="service-card card reveal">
-          <div class="card-img" style="background-image:url('https://picsum.photos/seed/svc-metal/400/300')"><span class="card-chip"><i class="bi bi-nut"></i></span></div>
+          <div class="card-img" style="background-image:url('../assets/images/services/metal.webp')"><span class="card-chip"><i class="bi bi-nut"></i></span></div>
           <div class="card-body"><h3>Metal Painting</h3><p>Anti-rust priming and enamel finishing for gates, grills and railings.</p><div class="price">From ₹22/sq.ft</div><a href="service-details.html" class="learn">Learn More →</a></div>
         </div>
         <div class="service-card card reveal">
-          <div class="card-img" style="background-image:url('https://picsum.photos/seed/svc-wallpaper/400/300')"><span class="card-chip"><i class="bi bi-layers"></i></span></div>
+          <div class="card-img" style="background-image:url('../assets/images/services/wallpaper.jpeg')"><span class="card-chip"><i class="bi bi-layers"></i></span></div>
           <div class="card-body"><h3>Wallpaper Installation</h3><p>Imported and domestic wallpaper, precisely aligned and seamed.</p><div class="price">From ₹35/sq.ft</div><a href="service-details.html" class="learn">Learn More →</a></div>
         </div>
         <div class="service-card card reveal">
-          <div class="card-img" style="background-image:url('https://picsum.photos/seed/svc-color/400/300')"><span class="card-chip"><i class="bi bi-palette"></i></span></div>
-          <div class="card-body"><h3>Color Consultation</h3><p>One-on-one guidance with real trend palettes and room mockups.</p><div class="price">From ₹1,500 flat</div><a href="color-consultation.html" class="learn">Learn More →</a></div>
+          <div class="card-img" style="background-image:url('../assets/images/services/color.webp')"><span class="card-chip"><i class="bi bi-palette"></i></span></div>
+          <div class="card-body"><h3>Color Consultation</h3><p>One-on-one guidance using real trend palettes and room mockups.</p><div class="price">From ₹1,500 flat</div><a href="color-consultation.html" class="learn">Learn More →</a></div>
         </div>
       </div>
+
+      
     </div>
   </section>
 

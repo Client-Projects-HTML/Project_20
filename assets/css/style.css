@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
-section { padding: 96px 0; }
+section { padding: 30px 0; }
 .section-tight { padding: 64px 0; }
 
 /* ---------- Signature element: Swatch Strip ---------- */
@@ -212,6 +212,33 @@ section { padding: 96px 0; }
 .nav-actions { display: flex; align-items: center; gap: 14px; }
 /* Shared style for the dark-mode and RTL toggle buttons — identical
    width/height and alignment as required by the design guidelines */
+
+
+/* ============ Nav dropdown (Home 1/Home 2) ============ */
+.nav-dropdown { position: relative; }
+.nav-dropdown > a { display: inline-flex; align-items: center; gap: 4px; }
+.dropdown-panel {
+  position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(6px);
+      background: #0F4C81;
+    border: 1px solid rgba(255,255,255,0.1);
+ border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg); padding: 8px; min-width: 190px;
+  opacity: 0; visibility: hidden; transition: all .18s ease; z-index: 50;
+}
+.nav-dropdown:hover .dropdown-panel, .nav-dropdown:focus-within .dropdown-panel {
+  opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+}
+.dropdown-panel a.active {
+    color: #F4A261 !important;
+}
+.dropdown-panel a { display: block; color: #ffffff;
+ padding: 10px 12px; border-radius: var(--radius-sm); font-size: 0.88rem; white-space: nowrap; }
+.dropdown-panel a:hover {     background: rgba(255,255,255,0.12);
+    color: #F4A261 !important; }
+.dropdown-panel a::after { display: none; }
+
+
+
 .icon-toggle {
   width: 42px; height: 42px;
   border-radius: 50%;
@@ -270,7 +297,7 @@ section { padding: 96px 0; }
   position: absolute; inset: 0;
   background: linear-gradient(120deg, rgba(15,76,129,0.92) 0%, rgba(15,76,129,0.72) 45%, rgba(33,37,41,0.55) 100%);
 }
-.hero-content { position: relative; z-index: 2; max-width: 680px; padding-top: 90px; }
+.hero-content { position: relative; z-index: 2; max-width: 680px; padding-top: 30px; }
 .hero-content .eyebrow { color: var(--color-secondary); }
 .hero-content .eyebrow::before {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 14'%3E%3Cpath d='M2 10c8-8 14-8 20-3s12 6 18-1 12-4 18 2' stroke='%23F4A261' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / contain;
@@ -306,7 +333,7 @@ section { padding: 96px 0; }
 /* Simple page banner for interior pages */
 .page-banner {
   position: relative;
-  padding: 180px 0 70px;
+  padding: 110px 0 20px;
   color: var(--color-white);
   background: linear-gradient(120deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   overflow: hidden;
@@ -315,7 +342,7 @@ section { padding: 96px 0; }
   content: "";
   position: absolute; inset: 0;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M0 100c30-30 50-30 80-5s60 30 90 0 30-40 30-40' stroke='%23F4A261' stroke-opacity='0.25' stroke-width='6' fill='none'/%3E%3C/svg%3E") repeat-x bottom;
-  background-size: 400px;
+  background-size: 230px;
   opacity: 0.6;
 }
 .page-banner .container { position: relative; z-index: 2; }
