@@ -208,9 +208,9 @@ body[data-page="login"]{
     height:55px;
     margin-top:15px;
     border-radius:14px;
-    border:2px solid rgba(255,255,255,.2);
+    border:2px solid rgba(16, 16, 16, 0.2);
     background:transparent;
-    color:#fff;
+    color:#0c0c0c;
     cursor:pointer;
     transition:.3s;
 }
@@ -274,3 +274,38 @@ body[data-page="login"]{
     }
 
 }
+/* =====================================================
+   DARK MODE (toggled via [data-theme="dark"] on <html>)
+===================================================== */
+[data-theme="dark"] {
+  --adm-bg: #14161a;
+  --adm-surface: #1d2025;
+  --adm-text: #eef0f2;
+  --adm-text-muted: #9aa1ab;
+  --adm-border: #33373e;
+  --adm-row-hover: #24272d;
+}
+[data-theme="dark"] body,
+[data-theme="dark"] .adm-shell,
+[data-theme="dark"] .adm-main { background: var(--adm-bg); color: var(--adm-text); }
+[data-theme="dark"] .adm-topbar,
+[data-theme="dark"] .adm-panel,
+[data-theme="dark"] .adm-card,
+[data-theme="dark"] .adm-table,
+[data-theme="dark"] .adm-modal { background: var(--adm-surface); color: var(--adm-text); }
+[data-theme="dark"] .adm-table th,
+[data-theme="dark"] .adm-table td,
+[data-theme="dark"] .adm-topbar { border-color: var(--adm-border); }
+[data-theme="dark"] .adm-table tbody tr:hover { background: var(--adm-row-hover); }
+[data-theme="dark"] .adm-btn-outline { color: var(--adm-text); border-color: var(--adm-border); }
+
+/* =====================================================
+   RTL LAYOUT (toggled via dir="rtl" on <html>)
+===================================================== */
+html[dir="rtl"] body { direction: rtl; text-align: right; }
+html[dir="rtl"] .adm-nav-link,
+html[dir="rtl"] .adm-brand,
+html[dir="rtl"] .adm-topbar-actions,
+html[dir="rtl"] .adm-field-row { flex-direction: row-reverse; }
+html[dir="rtl"] .adm-table th,
+html[dir="rtl"] .adm-table td { text-align: right; }

@@ -31,6 +31,28 @@
     window.location.href = "login.html";
   }
 
+  /* ---------------- Theme / RTL preferences ---------------- */
+  function applyPreferences() {
+    const theme = localStorage.getItem(CFG.storageKeyPrefix + "_theme") || "light";
+    const dir = localStorage.getItem(CFG.storageKeyPrefix + "_dir") || "ltr";
+    d.documentElement.setAttribute("data-theme", theme);
+    d.documentElement.setAttribute("dir", dir);
+    return { theme, dir };
+  }
+  function toggleTheme() {
+    const current = d.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    const next = current === "dark" ? "light" : "dark";
+    d.documentElement.setAttribute("data-theme", next);
+    localStorage.setItem(CFG.storageKeyPrefix + "_theme", next);
+  }
+  function toggleDir() {
+    const current = d.documentElement.getAttribute("dir") === "rtl" ? "rtl" : "ltr";
+    const next = current === "rtl" ? "ltr" : "rtl";
+    d.documentElement.setAttribute("dir", next);
+    localStorage.setItem(CFG.storageKeyPrefix + "_dir", next);
+  }
+  applyPreferences();
+
   /* ---------------- Storage helpers ---------------- */
   function getStore(key, fallback) {
     try {
@@ -197,6 +219,8 @@
           <button class="adm-burger" id="admBurger" aria-label="Toggle menu">☰</button>
           <h1 class="adm-page-title">${CFG.pageTitles[page] || CFG.brandName}</h1>
           <div class="adm-topbar-actions">
+            <button class="adm-btn adm-btn-outline" id="admDirToggle" type="button" aria-label="Toggle right-to-left layout" title="Toggle right-to-left layout">⇄</button>
+            <button class="adm-btn adm-btn-outline" id="admThemeToggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
             <a href="../pages/index.html" class="adm-topbar-link" target="_blank">View Site ↗</a>
             <div class="adm-avatar" id="admAvatarBtn" title="${CFG.adminName}">${CFG.adminInitials}</div>
           </div>
@@ -207,6 +231,8 @@
     `;
     d.body.prepend(shell);
 
+    d.getElementById("admThemeToggle").onclick = toggleTheme;
+    d.getElementById("admDirToggle").onclick = toggleDir;
     d.getElementById("admLogoutBtn").onclick = () => confirmAction("Log out of the admin panel?", logout);
     d.getElementById("admBurger").onclick = () => {
       d.getElementById("admSidebar").classList.toggle("open");
