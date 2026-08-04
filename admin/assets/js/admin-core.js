@@ -32,24 +32,56 @@
   }
 
   /* ---------------- Theme / RTL preferences ---------------- */
-  function applyPreferences() {
-    const theme = localStorage.getItem(CFG.storageKeyPrefix + "_theme") || "light";
-    const dir = localStorage.getItem(CFG.storageKeyPrefix + "_dir") || "ltr";
+  function updateThemeUI(theme) {
+    const themeBtn = d.getElementById("admThemeToggle");
     d.documentElement.setAttribute("data-theme", theme);
+
+    if (themeBtn) {
+      const isDark = theme === "dark";
+      const iconDark = themeBtn.querySelector(".icon-dark");
+      const iconLight = themeBtn.querySelector(".icon-light");
+
+      if (iconDark && iconLight) {
+        iconDark.style.display = isDark ? "none" : "inline";
+        iconLight.style.display = isDark ? "inline" : "none";
+      }
+
+      const label = isDark ? "Toggle light mode" : "Toggle dark mode";
+      themeBtn.setAttribute("aria-label", label);
+      themeBtn.setAttribute("title", label);
+    }
+  }
+
+  /* Shared with the public site's main.js so dark mode / RTL stay in sync
+     no matter which side (admin or public pages) the visitor toggles it from. */
+  const SHARED_THEME_KEY = "cc-theme";
+  const SHARED_DIR_KEY = "cc-dir";
+
+  function applyPreferences() {
+    let theme = localStorage.getItem(SHARED_THEME_KEY);
+    if (!theme) {
+      theme = (w.matchMedia && w.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+    }
+    const dir = localStorage.getItem(SHARED_DIR_KEY) || "ltr";
+
+    updateThemeUI(theme);
     d.documentElement.setAttribute("dir", dir);
     return { theme, dir };
   }
+
   function toggleTheme() {
     const current = d.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
     const next = current === "dark" ? "light" : "dark";
-    d.documentElement.setAttribute("data-theme", next);
-    localStorage.setItem(CFG.storageKeyPrefix + "_theme", next);
+    
+    updateThemeUI(next);
+    localStorage.setItem(SHARED_THEME_KEY, next);
   }
+
   function toggleDir() {
     const current = d.documentElement.getAttribute("dir") === "rtl" ? "rtl" : "ltr";
     const next = current === "rtl" ? "ltr" : "rtl";
     d.documentElement.setAttribute("dir", next);
-    localStorage.setItem(CFG.storageKeyPrefix + "_dir", next);
+    localStorage.setItem(SHARED_DIR_KEY, next);
   }
   applyPreferences();
 
@@ -191,6 +223,7 @@
   }
 
   /* ---------------- Layout: sidebar + topbar ---------------- */
+ /* ---------------- Layout: sidebar + topbar ---------------- */
   function renderLayout() {
     const page = d.body.getAttribute("data-page");
     if (page === "login") return;
@@ -209,7 +242,12 @@
           <span class="adm-brand-mark">${CFG.brandInitial}</span>
           <span class="adm-brand-name">${CFG.brandName}<small>Admin Panel</small></span>
         </div>
-        <nav class="adm-nav">${menu}</nav>
+        <nav class="adm-nav">
+          ${menu}
+          <a href="../pages/index.html" class="adm-nav-link" aria-label="View website" title="View website">
+            <span class="adm-nav-icon">🏠</span><span>View Website</span>
+          </a>
+        </nav>
         <button class="adm-nav-link adm-logout" id="admLogoutBtn">
           <span class="adm-nav-icon">⏻</span><span>Logout</span>
         </button>
@@ -220,8 +258,10 @@
           <h1 class="adm-page-title">${CFG.pageTitles[page] || CFG.brandName}</h1>
           <div class="adm-topbar-actions">
             <button class="adm-btn adm-btn-outline" id="admDirToggle" type="button" aria-label="Toggle right-to-left layout" title="Toggle right-to-left layout">⇄</button>
-            <button class="adm-btn adm-btn-outline" id="admThemeToggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
-            <a href="../pages/index.html" class="adm-topbar-link" target="_blank">View Site ↗</a>
+            <button class="adm-btn adm-btn-outline" id="admThemeToggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+              <span class="icon-dark">🌙</span>
+              <span class="icon-light">☀️</span>
+            </button>
             <div class="adm-avatar" id="admAvatarBtn" title="${CFG.adminName}">${CFG.adminInitials}</div>
           </div>
         </header>
@@ -230,6 +270,9 @@
       <div class="adm-sidebar-backdrop" id="admBackdrop"></div>
     `;
     d.body.prepend(shell);
+    // Synchronize button text and ARIA state after appending DOM layout
+    const currentTheme = d.documentElement.getAttribute("data-theme") || "light";
+    updateThemeUI(currentTheme);
 
     d.getElementById("admThemeToggle").onclick = toggleTheme;
     d.getElementById("admDirToggle").onclick = toggleDir;
@@ -249,7 +292,6 @@
 
   /* ---------------- Simple canvas line/bar chart (no deps) ---------------- */
   function drawChart(canvas, opts) {
-    // opts: {type:'bar'|'line', labels:[], data:[], color, height}
     const ctx = canvas.getContext("2d");
     const dpr = window.devicePixelRatio || 1;
     const cssW = canvas.clientWidth || canvas.parentElement.clientWidth;
@@ -267,7 +309,6 @@
     const grid = "rgba(0,0,0,0.08)";
     const txt = "rgba(0,0,0,0.55)";
 
-    // gridlines
     ctx.strokeStyle = grid; ctx.lineWidth = 1; ctx.font = "11px var(--adm-font-body, sans-serif)"; ctx.fillStyle = txt;
     for (let i = 0; i <= 4; i++) {
       const y = pad.t + h2 - (h2 * i) / 4;
@@ -315,7 +356,6 @@
   }
 
   function drawDonut(canvas, opts) {
-    // opts: {labels:[], data:[], colors:[]}
     const ctx = canvas.getContext("2d");
     const dpr = window.devicePixelRatio || 1;
     const size = Math.min(canvas.clientWidth || 220, 220);

@@ -26,6 +26,7 @@
   --adm-radius-md: 14px;
   --adm-radius-lg: 24px;
 }
+
 /* ===================================================
    COLORCRAFT PREMIUM LOGIN PAGE
 =================================================== */
@@ -76,6 +77,55 @@ body[data-page="login"]{
     box-shadow:0 25px 70px rgba(0,0,0,.35);
 }
 
+/* =====================================================
+   LOGIN CARD HEADER TOOLS (RTL & THEME TOGGLE)
+===================================================== */
+.adm-login-header-tools {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 15;
+}
+
+.adm-login-tool-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.adm-login-tool-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+}
+
+/* Dark/Light Icon Toggle Visibility */
+.adm-login-tool-btn .icon-light {
+    display: none;
+}
+.adm-login-tool-btn .icon-dark {
+    display: inline-block;
+}
+
+[data-theme="dark"] .adm-login-tool-btn .icon-light {
+    display: inline-block;
+}
+[data-theme="dark"] .adm-login-tool-btn .icon-dark {
+    display: none;
+}
+
+/* =====================================================
+   LOGIN BRAND & FORM ELEMENTS
+===================================================== */
 .adm-login-brand{
     text-align:center;
     margin-bottom:30px;
@@ -258,7 +308,6 @@ body[data-page="login"]{
 }
 
 @media(max-width:768px){
-
     .adm-login-card{
         padding:30px;
     }
@@ -272,8 +321,8 @@ body[data-page="login"]{
         height:70px;
         font-size:28px;
     }
-
 }
+
 /* =====================================================
    DARK MODE (toggled via [data-theme="dark"] on <html>)
 ===================================================== */
@@ -299,6 +348,21 @@ body[data-page="login"]{
 [data-theme="dark"] .adm-table tbody tr:hover { background: var(--adm-row-hover); }
 [data-theme="dark"] .adm-btn-outline { color: var(--adm-text); border-color: var(--adm-border); }
 
+/* Dark mode specific to login card */
+[data-theme="dark"] .adm-login-card {
+    background: rgba(15, 23, 42, 0.65);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] body[data-page="login"] .adm-btn-outline {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] body[data-page="login"] .adm-btn-outline:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
 /* =====================================================
    RTL LAYOUT (toggled via dir="rtl" on <html>)
 ===================================================== */
@@ -309,3 +373,23 @@ html[dir="rtl"] .adm-topbar-actions,
 html[dir="rtl"] .adm-field-row { flex-direction: row-reverse; }
 html[dir="rtl"] .adm-table th,
 html[dir="rtl"] .adm-table td { text-align: right; }
+
+/* RTL specific to login card */
+html[dir="rtl"] .adm-login-header-tools {
+    right: auto;
+    left: 20px;
+}
+
+html[dir="rtl"] .adm-input-group > i:first-child {
+    left: auto;
+    right: 18px;
+}
+
+html[dir="rtl"] .adm-password-toggle {
+    right: auto;
+    left: 18px;
+}
+
+html[dir="rtl"] .adm-back-home i {
+    transform: rotate(180deg);
+}

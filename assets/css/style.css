@@ -65,13 +65,19 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   font-weight: 700;
 }
+/* Fluid type scale so headings never overflow small viewports and never
+   look undersized on large ones — mirrors utility-framework responsive type */
+h1 { font-size: clamp(2rem, 4.4vw + 1rem, 3rem); }
+h2 { font-size: clamp(1.5rem, 2.6vw + 1rem, 2.2rem); }
+h3 { font-size: clamp(1.15rem, 1.2vw + 0.9rem, 1.4rem); }
+h4 { font-size: clamp(1.05rem, 0.6vw + 0.9rem, 1.15rem); }
 
 :focus-visible {
   outline: 3px solid var(--color-secondary);
   outline-offset: 2px;
 }
 
-.container { max-width: 1240px; margin: 0 auto; padding: 60px 24px; }
+.container { max-width: 1240px; margin: 0 auto; padding: 10px 24px; }
 section { padding: 30px 0; }
 .section-tight { padding: 64px 0; }
 
@@ -170,6 +176,7 @@ section { padding: 30px 0; }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
   padding: 16px 0;
   padding-left: 10px;
 }
@@ -218,6 +225,12 @@ section { padding: 30px 0; }
 /* ============ Nav dropdown (Home 1/Home 2) ============ */
 .nav-dropdown { position: relative; }
 .nav-dropdown > a { display: inline-flex; align-items: center; gap: 4px; }
+.nav-dropdown > a i { font-size: 0.7rem; transition: transform var(--dur) var(--ease); }
+.nav-dropdown:hover > a i, .nav-dropdown:focus-within > a i { transform: rotate(180deg); }
+
+/* CTA links duplicated inside the mobile drawer — hidden on desktop where the
+   real buttons already live in .nav-actions; shown only once the nav collapses. */
+.nav-mobile-cta { display: none; }
 .dropdown-panel {
   position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(6px);
       background: #0F4C81;

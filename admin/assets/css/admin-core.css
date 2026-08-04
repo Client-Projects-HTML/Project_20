@@ -246,4 +246,16 @@ input, select, textarea { font-family: inherit; font-size: 14px; }
   .adm-stat-grid { grid-template-columns: 1fr; }
   .adm-topbar { padding: 12px 14px; }
   .adm-login-card { padding: 30px 22px; }
+  .adm-card-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .adm-cal-grid { gap: 3px; }
+  .adm-cal-cell { min-height: 52px; padding: 4px; font-size: 10.5px; }
+  .adm-cal-dow { font-size: 9.5px; }
+  .adm-cal-evt { font-size: 9px; }
+  .adm-page-title { font-size: 16px; }
+  .adm-content { padding: 14px; }
+  .adm-toolbar .adm-search { min-width: 100%; order: -1; }
+}
+
+@media (max-width: 360px) {
+  .adm-card-grid { grid-template-columns: 1fr; }
 }
