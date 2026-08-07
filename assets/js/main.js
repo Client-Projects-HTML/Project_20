@@ -48,6 +48,22 @@
       });
     }
   }
+  // Automatically inject favicon on every page
+(function injectFavicon() {
+  const head = document.head;
+
+  // Path relative to the site root or assets folder
+  const faviconPath = '../assets/images/favicon.jpeg';
+
+  // Check if a favicon link already exists
+  if (!document.querySelector("link[rel*='icon']")) {
+    const link = document.createElement('link');
+    link.type = 'image/x-icon';
+    link.rel = 'shortcut icon';
+    link.href = faviconPath;
+    head.appendChild(link);
+  }
+})();
 
   /* ---------- RTL toggle (optional, for demo/testing) ---------- */
   function initRTLToggle() {
