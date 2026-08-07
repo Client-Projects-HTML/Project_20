@@ -58,3 +58,29 @@ html[data-theme="dark"] .toast { background: var(--color-white); color: var(--co
 html[data-theme="dark"] .brand-strip span { color: var(--color-gray-600); }
 
 html[data-theme="dark"] .stats-band { background: var(--color-primary-dark); }
+
+/* Update Login Card variables when dark mode is enabled */
+html[data-theme="dark"] {
+  --bg: #14181B;
+  --surface: #1E2226;
+  --border: #454C52;
+  --ink: #F1F3F5;
+  --ink-soft: #A8B0B7;
+  --primary: #F4A261;
+}
+
+html[data-theme="dark"] .login-container {
+  background-color: var(--color-bg, #14181B);
+}
+
+html[data-theme="dark"] .login-card {
+  background-color: var(--color-white, #1E2226);
+  border-color: var(--color-gray-400, #454C52);
+  color: var(--color-dark, #F1F3F5);
+}
+
+html[data-theme="dark"] .icon-toggle {
+  background-color: var(--color-gray-100, #23272B);
+  border-color: var(--color-gray-400, #454C52);
+  color: var(--color-dark, #F1F3F5);
+}

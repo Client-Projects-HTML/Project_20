@@ -393,3 +393,7 @@ html[dir="rtl"] .adm-password-toggle {
 html[dir="rtl"] .adm-back-home i {
     transform: rotate(180deg);
 }
+[data-theme="dark"] .adm-sidebar {
+  background-color: var(--adm-surface); /* or #111317 */
+  color: var(--adm-text);
+}
