@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - ColorCraft</title>
+  <title>Sign Up - ColorCraft</title>
   
   <!-- FontAwesome & Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -52,13 +52,6 @@
       padding: 4px;
       font-size: 1.1rem;
     }
-    .login-form-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 14px 0 20px;
-      font-size: 0.88rem;
-    }
     .signup-prompt {
       margin-top: 18px;
       font-size: 0.9rem;
@@ -98,49 +91,72 @@
     </div>
   </header>
 
-  <!-- Login Card -->
-  <main class="login-card">
+  <!-- Signup Card -->
+  <main class="login-card" style="max-width:480px;">
     
-    <h2 id="login-title">Host Login</h2>
-    <p class="subtitle" id="login-subtitle">Please enter your host details to sign in.</p>
+    <h2 id="signup-title">Host Registration</h2>
+    <p class="subtitle" id="signup-subtitle">Create a host account to manage your property finishing.</p>
 
     <!-- Role Switcher -->
     <div class="role-tabs">
       <button type="button" class="role-tab-btn active" id="tab-host">
-        <i class="fa-solid fa-user me-1"></i> Host Login
+        <i class="fa-solid fa-user me-1"></i> Host Sign Up
       </button>
       <button type="button" class="role-tab-btn" id="tab-admin">
-        <i class="fa-solid fa-user-shield me-1"></i> Admin Login
+        <i class="fa-solid fa-user-shield me-1"></i> Admin Sign Up
       </button>
     </div>
 
-    <!-- Dynamic Form for Host and Admin -->
-    <form class="login-form" id="auth-form">
+    <!-- Dynamic Form for Host and Admin Registration -->
+    <form class="login-form" id="signup-form">
+      <div class="form-group">
+        <label for="fullname">Full Name <span class="req">*</span></label>
+        <input type="text" id="fullname" class="form-control" placeholder="John Doe" required>
+      </div>
+
       <div class="form-group">
         <label for="email">Email Address <span class="req">*</span></label>
         <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
       </div>
 
       <div class="form-group">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-          <label for="password" style="margin-bottom:0;">Password <span class="req">*</span></label>
-          <a href="#" id="forgot-password-link" style="font-size:0.84rem;color:var(--color-primary);font-weight:500;">Forgot Password?</a>
-        </div>
+        <label for="phone">Phone Number <span class="req">*</span></label>
+        <input type="tel" id="phone" class="form-control" placeholder="+91 98765 43210" required>
+      </div>
+
+      <div class="form-group" id="role-extra-field">
+        <label for="extra-input" id="extra-label">Property / Business Name <span class="req">*</span></label>
+        <input type="text" id="extra-input" class="form-control" placeholder="e.g. ColorCraft Estates" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password <span class="req">*</span></label>
         <div class="password-field-wrap">
-          <input type="password" id="password" class="form-control" placeholder="••••••••" required style="padding-right:42px;">
+          <input type="password" id="password" class="form-control" placeholder="••••••••" required style="padding-right:42px;" minlength="6">
           <button type="button" class="password-toggle-btn" id="toggle-password" aria-label="Toggle password visibility">
             <i class="bi bi-eye" id="eye-icon"></i>
           </button>
         </div>
       </div>
 
-      <div class="login-form-meta">
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;margin:0;">
-          <input type="checkbox" id="remember-me" checked> Remember me
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password <span class="req">*</span></label>
+        <div class="password-field-wrap">
+          <input type="password" id="confirm-password" class="form-control" placeholder="••••••••" required style="padding-right:42px;" minlength="6">
+          <button type="button" class="password-toggle-btn" id="toggle-confirm-password" aria-label="Toggle confirm password visibility">
+            <i class="bi bi-eye" id="eye-confirm-icon"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group" style="text-align:left;margin-top:10px;">
+        <label style="display:flex;align-items:flex-start;gap:8px;cursor:pointer;font-size:0.85rem;font-weight:400;color:var(--color-gray-700);">
+          <input type="checkbox" id="accept-terms" required style="margin-top:3px;">
+          <span>I agree to ColorCraft's <a href="#" style="color:var(--color-primary);text-decoration:underline;">Terms of Service</a> &amp; <a href="#" style="color:var(--color-primary);text-decoration:underline;">Privacy Policy</a>.</span>
         </label>
       </div>
 
-      <button type="submit" class="btn btn-primary btn-block" id="submit-btn">Sign In as Host</button>
+      <button type="submit" class="btn btn-primary btn-block" id="submit-btn">Create Host Account</button>
       
       <!-- Go to Dashboard Button (Available for both Host and Admin) -->
       <a href="../admin/dashboard.html" class="btn btn-secondary btn-block" style="margin-top:10px;display:flex;align-items:center;justify-content:center;gap:8px;" id="dashboard-btn">
@@ -149,12 +165,8 @@
     </form>
 
     <div class="signup-prompt">
-      Don't have an account? <a href="signup.html">Sign up</a>
+      Already have an account? <a href="login.html">Login</a>
     </div>
-
-    <p class="terms-text">
-      By logging in, you agree to ColorCraft's <a href="#" id="terms-link">Terms of Service</a> &amp; <a href="#" id="privacy-link">Privacy Policy</a>.
-    </p>
 
   </main>
 
@@ -163,82 +175,72 @@
 
     const tabHost = document.getElementById('tab-host');
     const tabAdmin = document.getElementById('tab-admin');
-    const loginTitle = document.getElementById('login-title');
-    const loginSubtitle = document.getElementById('login-subtitle');
+    const signupTitle = document.getElementById('signup-title');
+    const signupSubtitle = document.getElementById('signup-subtitle');
+    const extraLabel = document.getElementById('extra-label');
+    const extraInput = document.getElementById('extra-input');
     const submitBtn = document.getElementById('submit-btn');
-    const authForm = document.getElementById('auth-form');
+    const signupForm = document.getElementById('signup-form');
 
-    // Switch to Host Login Mode
+    // Switch to Host Registration Mode
     tabHost.addEventListener('click', () => {
       currentRole = 'host';
       tabHost.classList.add('active');
       tabAdmin.classList.remove('active');
-      loginTitle.textContent = 'Host Login';
-      loginSubtitle.textContent = 'Please enter your host details to sign in.';
-      submitBtn.textContent = 'Sign In as Host';
+      signupTitle.textContent = 'Host Registration';
+      signupSubtitle.textContent = 'Create a host account to manage your property finishing.';
+      extraLabel.innerHTML = 'Property / Business Name <span class="req">*</span>';
+      extraInput.placeholder = 'e.g. ColorCraft Estates';
+      submitBtn.textContent = 'Create Host Account';
     });
 
-    // Switch to Admin Login Mode
+    // Switch to Admin Registration Mode
     tabAdmin.addEventListener('click', () => {
       currentRole = 'admin';
       tabAdmin.classList.add('active');
       tabHost.classList.remove('active');
-      loginTitle.textContent = 'Admin Login';
-      loginSubtitle.textContent = 'Enter admin credentials to open dashboard directly.';
-      submitBtn.textContent = 'Sign In as Admin';
+      signupTitle.textContent = 'Admin Registration';
+      signupSubtitle.textContent = 'Register an administrative access account.';
+      extraLabel.innerHTML = 'Admin Security Key / Access Code <span class="req">*</span>';
+      extraInput.placeholder = 'Enter Admin Key';
+      submitBtn.textContent = 'Create Admin Account';
     });
 
-    // Password Toggle Handler
-    const togglePasswordBtn = document.getElementById('toggle-password');
-    const passwordInput = document.getElementById('password');
-    const eyeIcon = document.getElementById('eye-icon');
-
-    if (togglePasswordBtn && passwordInput && eyeIcon) {
-      togglePasswordBtn.addEventListener('click', () => {
-        const isPassword = passwordInput.type === 'password';
-        passwordInput.type = isPassword ? 'text' : 'password';
-        eyeIcon.className = isPassword ? 'bi bi-eye-slash' : 'bi bi-eye';
-      });
+    // Password Eye Toggle
+    function setupPasswordToggle(btnId, inputId, iconId) {
+      const btn = document.getElementById(btnId);
+      const input = document.getElementById(inputId);
+      const icon = document.getElementById(iconId);
+      if (btn && input && icon) {
+        btn.addEventListener('click', () => {
+          const isPassword = input.type === 'password';
+          input.type = isPassword ? 'text' : 'password';
+          icon.className = isPassword ? 'bi bi-eye-slash' : 'bi bi-eye';
+        });
+      }
     }
+    setupPasswordToggle('toggle-password', 'password', 'eye-icon');
+    setupPasswordToggle('toggle-confirm-password', 'confirm-password', 'eye-confirm-icon');
 
-    // Forgot Password Handler
-    const forgotPasswordLink = document.getElementById('forgot-password-link');
-    if (forgotPasswordLink) {
-      forgotPasswordLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        const email = document.getElementById('email').value;
-        if (email) {
-          alert(`Password reset instructions have been sent to ${email}`);
-        } else {
-          alert('Please enter your email address above to receive password reset instructions.');
-        }
-      });
-    }
-
-    // Sign up link handler
-    const signupLink = document.getElementById('signup-link');
-    if (signupLink) {
-      signupLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        alert('Redirecting to ColorCraft registration form...');
-      });
-    }
-
-    // Form Submission Handler
-    authForm.addEventListener('submit', (e) => {
+    // Registration Form Handler
+    signupForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      const pwd = document.getElementById('password').value;
+      const confirmPwd = document.getElementById('confirm-password').value;
+
+      if (pwd !== confirmPwd) {
+        alert('Passwords do not match. Please re-enter passwords.');
+        return;
+      }
 
       if (currentRole === 'admin') {
-        // Direct Authentication for Admin Dashboard
         sessionStorage.setItem('cc_session', '1');
         localStorage.setItem('cc_lastLogin', new Date().toISOString());
-        
-        // Redirect directly to the Admin Dashboard page
+        alert('Admin account created successfully! Redirecting to Admin Dashboard...');
         window.location.href = '../admin/dashboard.html';
       } else {
-        // Host Action
         sessionStorage.setItem('cc_host_session', '1');
-        alert('Logged in successfully as Host! Redirecting to Dashboard...');
+        alert('Host account registered successfully! Redirecting to Dashboard...');
         window.location.href = '../admin/dashboard.html';
       }
     });
@@ -250,8 +252,6 @@
     function applyTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('cc_theme', theme);
-      
-      // Toggle Icon between Moon and Sun
       if (theme === 'dark') {
         themeIcon.className = 'bi bi-sun';
       } else {

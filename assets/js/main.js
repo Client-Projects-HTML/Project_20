@@ -5,6 +5,25 @@
 (function () {
   "use strict";
 
+  // Apply saved theme & text direction immediately to prevent render latency/flash
+  (function applySavedState() {
+    var savedTheme = localStorage.getItem("cc-theme");
+    if (savedTheme) {
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+
+    var savedDir = localStorage.getItem("cc-dir");
+    if (savedDir === "rtl") {
+      document.documentElement.setAttribute("dir", "rtl");
+    } else {
+      document.documentElement.setAttribute("dir", "ltr");
+    }
+  })();
+
   document.addEventListener("DOMContentLoaded", function () {
     initTheme();
     initStickyHeader();
@@ -22,13 +41,6 @@
   function initTheme() {
     var root = document.documentElement;
     var toggleBtns = document.querySelectorAll("[data-theme-toggle]");
-    var saved = localStorage.getItem("cc-theme");
-
-    if (saved) {
-      root.setAttribute("data-theme", saved);
-    } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      root.setAttribute("data-theme", "dark");
-    }
     updateThemeIcons();
 
     toggleBtns.forEach(function (btn) {
@@ -65,19 +77,35 @@
   }
 })();
 
-  /* ---------- RTL toggle (optional, for demo/testing) ---------- */
+  /* ---------- RTL toggle ---------- */
   function initRTLToggle() {
-    var btn = document.querySelector("[data-rtl-toggle]");
-    if (!btn) return;
-    var html = document.documentElement;
-    if (localStorage.getItem("cc-dir") === "rtl") {
-      html.setAttribute("dir", "rtl");
-    }
-    btn.addEventListener("click", function () {
-      var isRTL = html.getAttribute("dir") === "rtl";
-      html.setAttribute("dir", isRTL ? "ltr" : "rtl");
-      localStorage.setItem("cc-dir", isRTL ? "ltr" : "rtl");
+    var root = document.documentElement;
+    var toggleBtns = document.querySelectorAll("[data-rtl-toggle]");
+
+    updateRTLState();
+
+    toggleBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var isRTL = root.getAttribute("dir") === "rtl";
+        var nextDir = isRTL ? "ltr" : "rtl";
+        root.setAttribute("dir", nextDir);
+        localStorage.setItem("cc-dir", nextDir);
+        updateRTLState();
+      });
     });
+
+    function updateRTLState() {
+      var isRTL = root.getAttribute("dir") === "rtl";
+      toggleBtns.forEach(function (btn) {
+        if (isRTL) {
+          btn.classList.add("active");
+          btn.setAttribute("aria-label", "Switch to LTR text direction");
+        } else {
+          btn.classList.remove("active");
+          btn.setAttribute("aria-label", "Switch to RTL text direction");
+        }
+      });
+    }
   }
 
   /* ---------- Sticky header shadow on scroll ---------- */
@@ -96,11 +124,34 @@
   function initMobileNav() {
     var toggle = document.querySelector(".nav-toggle");
     var links = document.querySelector(".nav-links");
+    var header = document.querySelector(".site-header");
     if (!toggle || !links) return;
-    toggle.addEventListener("click", function () {
+
+    function closeNav() {
+      links.classList.remove("mobile-open");
+      toggle.innerHTML = '<i class="bi bi-list"></i>';
+      toggle.setAttribute("aria-expanded", "false");
+    }
+
+    toggle.addEventListener("click", function (e) {
+      e.stopPropagation();
       var isOpen = links.classList.toggle("mobile-open");
       toggle.innerHTML = isOpen ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-list"></i>';
       toggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    // Close when clicking a link inside mobile drawer
+    links.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        closeNav();
+      });
+    });
+
+    // Close when clicking outside header
+    document.addEventListener("click", function (e) {
+      if (links.classList.contains("mobile-open") && header && !header.contains(e.target)) {
+        closeNav();
+      }
     });
   }
 

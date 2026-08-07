@@ -1,67 +1,50 @@
 /* ============================================================
    ColorCraft — Responsive Rules
-   Mobile-first adjustments layered on top of style.css
-   Breakpoints: 1200 (small laptop) / 1024 (tablet landscape) /
-   900 (tablet portrait) / 860 (nav collapse) / 640 (mobile
-   landscape) / 480 (mobile portrait) / 380 (small phone)
+   Configured per strict breakpoint tier specs:
+   - Mobile:  < 640px
+   - Tablet:  640px - 1024px
+   - Desktop: 1024px - 1280px
+   - Large:   > 1280px
    ============================================================ */
 
-/* ---------- Small laptop / narrow desktop ---------- */
-@media (max-width: 1200px) {
-  .container { padding: 52px 24px; }
-  .section-tight { padding: 56px 0; }
+/* ============================================================
+   1. LARGE DESKTOP TIER (> 1280px)
+   ============================================================ */
+@media (min-width: 1280.02px) {
+  .container { max-width: 1240px; margin: 0 auto; }
+  .grid-6 { grid-template-columns: repeat(6, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: 1fr 1fr; }
+}
+
+/* ============================================================
+   2. DESKTOP TIER (1024px - 1280px)
+   ============================================================ */
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .container { max-width: 1000px; padding: 0 24px; }
   .grid-6 { grid-template-columns: repeat(4, 1fr); }
-  .stat-ribbon { max-width: 90%; }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .stat-ribbon { max-width: 92%; }
 }
 
-/* ---------- Tablet landscape ---------- */
-@media (max-width: 1024px) {
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .grid-4 { grid-template-columns: repeat(2, 1fr); }
-  .grid-3 { grid-template-columns: repeat(2, 1fr); }
-  .grid-6 { grid-template-columns: repeat(3, 1fr); }
-  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
-  .color-swatch-grid { grid-template-columns: repeat(4, 1fr); }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); row-gap: 30px; }
-  .process-track { grid-template-columns: repeat(3, 1fr); row-gap: 30px; }
-  .process-track::before { display: none; }
-  .hero-swatches { display: none; }
-  .adm-detail-grid { grid-template-columns: 1fr; }
-  .brand-strip { justify-content: center; gap: 28px; }
-}
-
-/* ---------- Tablet portrait ---------- */
-@media (max-width: 900px) {
-  .container { padding: 44px 20px; }
-  .section-tight { padding: 48px 0; }
+/* ============================================================
+   3. TABLET TIER (640px - 1024px)
+   ============================================================ */
+@media (max-width: 1023.98px) {
+  .container { padding: 0 20px; }
   section { padding: 48px 0; }
-  .grid-2 { grid-template-columns: 1fr; gap: 28px; }
-  .spotlight-consult { grid-template-columns: 1fr; }
-  .spotlight-consult-media { min-height: 220px; }
-  .spotlight-consult-body { padding: 32px 26px; }
-  .story-row2, .story-row2.reverse { grid-template-columns: 1fr; margin-bottom: 48px; gap: 28px; }
-  .story-row2.reverse .story2-media, .story-row2.reverse .story2-text { order: initial; }
-  .process-track2 { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
-  .process-track2::before { display: none; }
-  .stat-ribbon { grid-template-columns: repeat(2, 1fr); margin-top: -46px; padding: 22px 16px; gap: 18px 0; }
-  .stat-ribbon .stat-item:nth-child(3) { border-left: none; }
-  .hero-premium2 { min-height: 82vh; padding-bottom: 70px; }
-  .hero-premium2-content { max-width: 100%; }
-  .form-panel { padding: 30px 26px; }
-  .calc-panel { padding: 28px 22px; }
-  .testimonial-slide { padding: 30px 24px; }
-}
-
-/* ---------- Nav collapse / small tablet & large phone ---------- */
-@media (max-width: 860px) {
+  
+  /* Hamburger Navigation for Tablet & Mobile */
+  .navbar { padding: 12px 0; gap: 10px; }
+  .brand { font-size: 1.12rem; gap: 8px; }
+  .brand .brand-chip { width: 26px; height: 26px; border-radius: 6px; }
   .nav-links { display: none; }
-  .nav-toggle { display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  /* The full-text "Get Free Quote" + "Login" buttons in .nav-actions don't fit
-     next to the two icon toggles and the hamburger on narrow screens — without
-     this they push the hamburger button off the edge of the header and it
-     becomes unclickable/invisible. Hide them here; the same links reappear at
-     the bottom of the mobile drawer via .nav-mobile-cta below. */
-  .nav-actions > a.btn { display: none; }
+  .icon-toggle { width: 38px; height: 38px; min-width: 38px; min-height: 38px; font-size: 0.95rem; }
+  .nav-toggle { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 40px; height: 40px; min-height: 40px; min-width: 40px; font-size: 1.25rem; }
+  .nav-actions > a.btn { display: none !important; }
+  .nav-actions [data-rtl-toggle] { display: flex !important; }
+  
   .nav-links.mobile-open {
     display: flex;
     position: absolute;
@@ -74,8 +57,13 @@
     box-shadow: var(--shadow-md);
     max-height: calc(100vh - 72px);
     overflow-y: auto;
+    border-bottom: 1px solid var(--color-gray-200);
   }
-  .nav-links.mobile-open a { width: 100%; padding: 12px 0; }
+  html[data-theme="dark"] .nav-links.mobile-open {
+    background: var(--color-white);
+    border-bottom-color: var(--color-gray-400);
+  }
+  .nav-links.mobile-open a { width: 100%; padding: 12px 0; color: var(--color-dark); min-height: 44px; display: flex; align-items: center; }
   .nav-links.mobile-open .nav-mobile-cta {
     display: flex;
     width: 100%;
@@ -83,8 +71,6 @@
     padding: 14px 20px;
   }
   .nav-links.mobile-open a.nav-mobile-cta + a.nav-mobile-cta { margin-top: 10px; }
-  /* Dropdown becomes an inline, always-open sub-list inside the mobile menu
-     instead of a hover-triggered floating panel, which doesn't work on touch */
   .nav-links.mobile-open .nav-dropdown { width: 100%; }
   .nav-links.mobile-open .dropdown-panel {
     position: static;
@@ -94,126 +80,222 @@
     box-shadow: none;
     margin: 4px 0 8px;
     width: 100%;
+    border-radius: var(--radius-sm);
   }
   .nav-links.mobile-open .dropdown-panel a { color: var(--color-primary); padding: 10px 14px; }
-  .nav-links.mobile-open .dropdown-panel a:hover { background: rgba(15,76,129,0.08); color: var(--color-primary) !important; }
-  .grid-2 { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
-  section { padding: 44px 0; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
-  .adm-grid-2, .adm-grid-3 { grid-template-columns: 1fr; }
-}
+  html[data-theme="dark"] .nav-links.mobile-open .dropdown-panel { background: var(--color-gray-100); }
+  html[data-theme="dark"] .nav-links.mobile-open .dropdown-panel a { color: var(--color-dark); }
 
-/* ---------- Mobile landscape / small tablet ---------- */
-@media (max-width: 640px) {
-  .container { padding: 36px 18px; }
-  .grid-4, .grid-3, .grid-6 { grid-template-columns: 1fr 1fr; }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Grid Layouts for Tablet */
+  .grid-6 { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-2 { grid-template-columns: 1fr; gap: 28px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
   .color-swatch-grid { grid-template-columns: repeat(3, 1fr); }
-  .stats-grid { grid-template-columns: 1fr 1fr; }
-  .process-track { grid-template-columns: 1fr 1fr; }
-  .process-track2 { grid-template-columns: 1fr 1fr; }
-  .stat-ribbon { grid-template-columns: 1fr 1fr; }
-  .footer-grid { grid-template-columns: 1fr; text-align: left; }
-  .footer-bottom { flex-direction: column; text-align: center; }
-  .hero { min-height: 72vh; }
-  .hero-content { padding-top: 70px; }
-  .hero-content p.lead { font-size: 1.02rem; }
-  .hero-actions .btn { width: 100%; }
-  .hero-actions { flex-direction: column; }
-  .hero-premium2 { min-height: 74vh; padding-bottom: 56px; }
-  .page-banner { padding: 96px 0 20px; }
-  .lightbox-prev, .lightbox-next { width: 40px; height: 40px; font-size: 1rem; }
-  .lightbox-close { width: 40px; height: 40px; font-size: 1.1rem; top: 14px; right: 14px; }
-  .pricing-card.featured { transform: none; }
-  .pricing-card { padding: 32px 22px; }
-  .btn { min-height: 44px; }
-  .nav-links a, .icon-toggle, .nav-toggle, .btn { min-height: 44px; }
-  .contact-info-card { flex-direction: column; text-align: center; align-items: center; }
-  .contact-info-card .ic { margin: 0 auto; }
-  .accordion-header { padding: 16px 18px; font-size: 0.94rem; }
-  .accordion-body-inner { padding: 0 18px 16px; }
-  .filter-tabs { gap: 8px; }
-  .filter-tabs button { padding: 8px 16px; font-size: 0.82rem; }
-  .countdown { gap: 10px; }
-  .countdown .box { padding: 14px 16px; min-width: 78px; }
-  .countdown .box .n { font-size: 1.6rem; }
-  .back-to-top { bottom: 18px; right: 18px; width: 44px; height: 44px; }
-  .toast { left: 16px; right: 16px; top: 90px; min-width: 0; width: auto; }
-  .swatch-strip { height: 8px; }
-  .brand-strip { gap: 20px; justify-content: space-around; }
-  .brand-strip span { font-size: 1rem; }
-  .team-card { padding: 24px 14px; }
-  .timeline { padding-left: 32px; }
-  .timeline-item::before { left: -32px; }
-  .adm-stat-grid { grid-template-columns: repeat(2, 1fr); }
-  .adm-card-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); row-gap: 24px; }
+  .process-track, .process-track2 { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
+  .process-track::before, .process-track2::before { display: none; }
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-img { height: 320px; }
+  .stat-ribbon { grid-template-columns: repeat(2, 1fr); margin-top: -40px; padding: 20px 16px; gap: 16px 0; }
+  .stat-ribbon .stat-item:nth-child(3) { border-left: none; }
+  .spotlight-consult { grid-template-columns: 1fr; }
+  .spotlight-consult-media { min-height: 220px; }
 }
 
-/* ---------- Mobile portrait ---------- */
-@media (max-width: 480px) {
-  .container { padding: 30px 16px; }
+/* ============================================================
+   4. MOBILE TIER (< 640px)
+   Includes all Mobile-Specific Requirements:
+   - Hamburger menu navigation
+   - Touch-friendly buttons (minimum 44px)
+   - Reduced animations on mobile
+   - Simplified tables/data display
+   - Optimized image sizes for mobile data
+   ============================================================ */
+@media (max-width: 639.98px) {
+  /* Padding & Layout */
+  .container { padding: 0 18px; }
+  .site-header .container { padding: 0 18px; }
+  .navbar { padding: 14px 0; gap: 8px; }
+  
+  /* Brand Logo & Navbar Text Scaling for Mobile S & M */
+  .brand { font-size: 1.05rem; gap: 6px; }
+  .brand .brand-chip { width: 24px; height: 24px; border-radius: 6px; }
+  .nav-actions { gap: 6px; }
+  .icon-toggle { width: 36px; height: 36px; min-width: 36px; min-height: 36px; font-size: 0.9rem; }
+  .nav-toggle { width: 38px; height: 38px; min-width: 38px; min-height: 38px; font-size: 1.2rem; }
+  .nav-links.mobile-open a { font-size: 0.88rem; padding: 10px 0; }
+  .nav-links.mobile-open .dropdown-panel a { font-size: 0.82rem; padding: 8px 10px; }
+
   section { padding: 36px 0; }
   .section-tight { padding: 36px 0; }
-  .section-heading { margin-bottom: 32px; }
-  .grid-4, .grid-3, .grid-6 { grid-template-columns: 1fr; }
+  .section-heading { margin-bottom: 28px; }
+
+  /* ------------------------------------------------------------
+     REQ 1: Touch-friendly buttons & targets (minimum 44px)
+     ------------------------------------------------------------ */
+  .btn,
+  .btn-sm,
+  .nav-links a,
+  .icon-toggle,
+  .nav-toggle,
+  .filter-tabs button,
+  .accordion-header,
+  .t-dots button,
+  .form-control,
+  .role-tab-btn,
+  select,
+  textarea {
+    min-height: 44px !important;
+    min-width: 44px;
+    touch-action: manipulation;
+  }
+  .btn {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    justify-content: center;
+  }
+  .hero-actions {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  /* Prevent automatic iOS zoom on focus by enforcing 16px input size */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  /* ------------------------------------------------------------
+     REQ 2: Reduced animations on mobile (saves CPU/GPU/battery)
+     ------------------------------------------------------------ */
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .icon-toggle:hover,
+  .btn:hover,
+  .card:hover {
+    transform: none !important;
+  }
+
+  /* ------------------------------------------------------------
+     REQ 3: Optimized image sizes for mobile data
+     ------------------------------------------------------------ */
+  img, picture, svg, video {
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: cover;
+  }
+  .hero-img {
+    height: 240px !important;
+    max-height: 280px;
+    object-fit: cover;
+  }
+  .hero {
+    min-height: auto;
+    padding: 96px 16px 50px;
+  }
+  .hero-badge {
+    position: static;
+    margin-top: 14px;
+    width: 100%;
+  }
+
+  /* ------------------------------------------------------------
+     REQ 4: Simplified tables & data display
+     ------------------------------------------------------------ */
+  .table-responsive,
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-collapse: collapse;
+  }
+  /* Simplified card layout for tabular data on mobile */
+  .pricing-grid,
+  .data-grid {
+    grid-template-columns: 1fr !important;
+  }
+  table.simplified-mobile th,
+  table.simplified-mobile td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    padding: 8px 12px;
+  }
+  table.simplified-mobile tr {
+    display: block;
+    margin-bottom: 14px;
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-sm);
+    background: var(--color-white);
+  }
+
+  /* Grid Layouts for Mobile (< 640px) */
+  .grid-6, .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr !important; gap: 20px; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .color-swatch-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .stats-grid { grid-template-columns: 1fr 1fr; gap: 18px; }
-  .stat .num { font-size: 2rem; }
-  .process-track, .process-track2 { grid-template-columns: 1fr; row-gap: 26px; }
-  .stat-ribbon { grid-template-columns: 1fr; margin-top: -34px; padding: 18px; }
-  .stat-ribbon .stat-item { border-left: none; padding: 10px 0; border-bottom: 1px solid var(--color-gray-200); }
-  .stat-ribbon .stat-item:last-child { border-bottom: none; }
-  .hero { min-height: 100vh; }
-  .hero-content h1 { font-size: clamp(1.8rem, 8vw, 2.4rem); }
-  .hero-content p.lead { font-size: 0.98rem; margin-bottom: 26px; }
-  .page-banner { padding: 88px 0 18px; }
-  .page-banner h1 { font-size: clamp(1.6rem, 7vw, 2.1rem); }
-  .breadcrumb { font-size: 0.8rem; flex-wrap: wrap; }
-  .cta-band { padding: 44px 22px; }
-  .form-panel { padding: 24px 18px; }
-  .calc-panel { padding: 22px 16px; }
-  .testimonial-slide { padding: 24px 18px; }
-  .testimonial-slide blockquote { font-size: 1rem; }
-  .card .card-body, .service-card .card-body { padding: 20px; }
-  .pricing-card { padding: 28px 18px; }
-  .pricing-card .price { font-size: 1.9rem; }
-  .login-card { padding: 1.8rem 1.3rem; }
-  .login-card .page-controls { position: static; justify-content: flex-end; margin-bottom: 12px; }
-  .icon-toggle { width: 36px; height: 36px; }
-  .spotlight-consult-body { padding: 24px 18px; }
-  .spotlight-consult-media { min-height: 180px; }
-  .swatch-row span { width: 28px !important; height: 28px !important; }
-  .footer-grid { gap: 26px; }
-  .site-footer { padding: 56px 0 0; }
-  .newsletter-form { flex-direction: column; }
-  .newsletter-form .btn { width: 100%; }
-  .team-card .photo { width: 96px; height: 96px; }
-  .why-card { padding: 26px 18px; }
-  .why-card .icon-wrap { width: 54px; height: 54px; font-size: 1.35rem; }
-  .filter-tabs button { padding: 7px 14px; font-size: 0.78rem; }
-  .adm-stat-grid { grid-template-columns: 1fr; }
-  .adm-topbar { padding: 12px 14px; gap: 10px; }
-  .adm-topbar-link span { display: none; }
-  .adm-login-card { padding: 30px 22px; }
-  .adm-card-grid { grid-template-columns: 1fr 1fr; }
-}
-
-/* ---------- Small phones ---------- */
-@media (max-width: 380px) {
-  .grid-4, .grid-3, .grid-6, .gallery-grid, .color-swatch-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: 1fr; }
-  .countdown .box { min-width: 64px; padding: 10px 12px; }
-  .countdown .box .n { font-size: 1.3rem; }
-  .hero-actions .btn, .btn-block { font-size: 0.88rem; padding: 12px 20px; }
-  .adm-card-grid { grid-template-columns: 1fr; }
-}
-
-/* ---------- Touch target safety net (any device without hover) ---------- */
-@media (hover: none) and (pointer: coarse) {
-  .btn, .nav-links a, .icon-toggle, .nav-toggle, .filter-tabs button, .accordion-header, .t-dots button {
-    min-height: 44px;
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .process-track, .process-track2 { grid-template-columns: 1fr; row-gap: 22px; }
+  
+  .stat-ribbon {
+    grid-template-columns: 1fr;
+    margin-top: -30px;
+    padding: 16px;
+    gap: 0;
   }
-  .icon-toggle:hover { transform: none; }
+  .stat-ribbon .stat-item {
+    border-left: none;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-gray-200);
+  }
+  .stat-ribbon .stat-item:last-child { border-bottom: none; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; text-align: left; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 12px; }
+  .newsletter-form { flex-direction: column; width: 100%; }
+
+  .page-banner { padding: 88px 16px 20px; }
+  .cta-band { padding: 36px 18px; }
+  .form-panel, .calc-panel, .pricing-card, .why-card, .spotlight-consult-body {
+    padding: 22px 16px;
+  }
+  .login-container { padding: 90px 14px 40px; }
+  .login-card { padding: 2rem 1.25rem; }
+  .login-card .page-controls { position: static; justify-content: flex-end; margin-bottom: 12px; }
+}
+
+/* Extra small phones (< 380px) */
+@media (max-width: 380px) {
+  .site-header .container { padding: 0 14px; }
+  .navbar { padding: 12px 0; gap: 6px; }
+  .brand { font-size: 0.95rem; gap: 5px; }
+  .brand .brand-chip { width: 22px; height: 22px; border-radius: 5px; }
+  .nav-actions { gap: 4px; }
+  .icon-toggle { width: 34px; height: 34px; min-width: 34px; min-height: 34px; font-size: 0.85rem; }
+  .nav-toggle { width: 36px; height: 36px; min-width: 36px; min-height: 36px; font-size: 1.1rem; }
+  .nav-links.mobile-open a { font-size: 0.84rem; padding: 8px 0; }
+  .gallery-grid, .color-swatch-grid, .stats-grid { grid-template-columns: 1fr !important; }
 }
