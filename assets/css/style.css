@@ -39,11 +39,14 @@
   /* Motion */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --dur: 0.45s;
+
+  /* Fixed navbar height — used to keep page content from sliding under it */
+  --header-h: 84px;
 }
 
 /* ---------- Reset ---------- */
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -172,6 +175,16 @@ section { padding: 30px 0; }
   transition: box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
 }
 .site-header.scrolled { box-shadow: var(--shadow-sm); border-color: var(--color-gray-200); }
+
+/* .site-header is position:fixed, so it's removed from normal flow and
+   would otherwise overlap whatever comes first inside <main>. Full-bleed
+   sections (.hero, .hero-premium2, .page-banner) already bake in their
+   own top padding to sit behind the translucent header on purpose — every
+   other page just needs its first section pushed down by the header's
+   height so the content starts fully below it. */
+#main-content > *:first-child:not(.hero):not(.hero-premium2):not(.page-banner) {
+  padding-top: var(--header-h);
+}
 .navbar {
   display: flex;
   align-items: center;

@@ -38,6 +38,7 @@
 
     if (themeBtn) {
       const isDark = theme === "dark";
+      themeBtn.classList.toggle("is-active", isDark);
       const iconDark = themeBtn.querySelector(".icon-dark");
       const iconLight = themeBtn.querySelector(".icon-light");
 
@@ -57,6 +58,11 @@
   const SHARED_THEME_KEY = "cc-theme";
   const SHARED_DIR_KEY = "cc-dir";
 
+  function updateDirUI(dir) {
+    const dirBtn = d.getElementById("admDirToggle");
+    if (dirBtn) dirBtn.classList.toggle("is-active", dir === "rtl");
+  }
+
   function applyPreferences() {
     let theme = localStorage.getItem(SHARED_THEME_KEY);
     if (!theme) {
@@ -66,6 +72,7 @@
 
     updateThemeUI(theme);
     d.documentElement.setAttribute("dir", dir);
+    updateDirUI(dir);
     return { theme, dir };
   }
 
@@ -81,6 +88,7 @@
     const current = d.documentElement.getAttribute("dir") === "rtl" ? "rtl" : "ltr";
     const next = current === "rtl" ? "ltr" : "rtl";
     d.documentElement.setAttribute("dir", next);
+    updateDirUI(next);
     localStorage.setItem(SHARED_DIR_KEY, next);
   }
   applyPreferences();
@@ -257,8 +265,8 @@
           <button class="adm-burger" id="admBurger" aria-label="Toggle menu">☰</button>
           <h1 class="adm-page-title">${CFG.pageTitles[page] || CFG.brandName}</h1>
           <div class="adm-topbar-actions">
-            <button class="adm-btn adm-btn-outline" id="admDirToggle" type="button" aria-label="Toggle right-to-left layout" title="Toggle right-to-left layout">⇄</button>
-            <button class="adm-btn adm-btn-outline" id="admThemeToggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <button class="adm-btn adm-icon-btn" id="admDirToggle" type="button" aria-label="Toggle right-to-left layout" title="Toggle right-to-left layout">⇄</button>
+            <button class="adm-btn adm-icon-btn" id="admThemeToggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
               <span class="icon-dark">🌙</span>
               <span class="icon-light">☀️</span>
             </button>
@@ -273,6 +281,7 @@
     // Synchronize button text and ARIA state after appending DOM layout
     const currentTheme = d.documentElement.getAttribute("data-theme") || "light";
     updateThemeUI(currentTheme);
+    updateDirUI(d.documentElement.getAttribute("dir") || "ltr");
 
     d.getElementById("admThemeToggle").onclick = toggleTheme;
     d.getElementById("admDirToggle").onclick = toggleDir;

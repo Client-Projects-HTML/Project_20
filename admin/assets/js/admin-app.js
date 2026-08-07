@@ -4,6 +4,8 @@ window.AdmApp = (function () {
   function qs(sel, root) { return (root || document).querySelector(sel); }
   function qsa(sel, root) { return Array.from((root || document).querySelectorAll(sel)); }
   function initials(name) { return String(name).split(" ").map(w => w[0]).slice(0, 2).join("").toUpperCase(); }
+  /* Stable placeholder photo for cards that don't have an uploaded image yet */
+  function placeholderImg(seed, w, h) { return `https://picsum.photos/seed/${encodeURIComponent(seed)}/${w || 400}/${h || 300}`; }
 
   /* ================= LOGIN ================= */
   function initLogin() {
@@ -92,13 +94,13 @@ window.AdmApp = (function () {
       Adm.contentEl().innerHTML = `<div class="adm-toolbar"><div class="adm-spacer"></div><button class="adm-btn adm-btn-primary" id="addSvc">+ Add Service</button></div><div class="adm-card-grid" id="svcGrid"></div>`;
       qs("#svcGrid").innerHTML = items.map(s => `
         <div class="adm-item-card">
-          <div class="thumb">${s.img ? `<img src="${Adm.esc(s.img)}">` : "🎨"}</div>
+          <div class="thumb"><img src="${s.img ? Adm.esc(s.img) : placeholderImg('svc-' + s.id)}" alt="${Adm.esc(s.name)}" loading="lazy"></div>
           <div class="body"><div class="title">${Adm.esc(s.name)}</div>
             <div class="meta">${s.price ? Adm.money(s.price) + " " + Adm.esc(s.unit) : "Quote on request"}</div>
             <div class="meta">${Adm.esc(s.desc)}</div></div>
           <div class="foot">
             <button class="adm-btn adm-btn-sm adm-btn-outline" data-edit="${s.id}">Edit</button>
-            <button class="adm-btn adm-btn-sm adm-btn-danger" data-del="${s.id}">Delete</button>
+            <button class="adm-icon-action" data-del="${s.id}" title="Delete" aria-label="Delete service">🗑</button>
           </div>
         </div>`).join("");
       qs("#addSvc").onclick = () => openModal(null);
@@ -359,12 +361,12 @@ window.AdmApp = (function () {
       Adm.contentEl().innerHTML = `<div class="adm-toolbar"><div class="adm-spacer"></div><button class="adm-btn adm-btn-primary" id="addImg">+ Upload Image</button></div><div class="adm-card-grid" id="galGrid"></div>`;
       qs("#galGrid").innerHTML = items.map(g => `
         <div class="adm-item-card">
-          <div class="thumb">${g.img ? `<img src="${Adm.esc(g.img)}">` : "🖼️"}</div>
+          <div class="thumb"><img src="${g.img ? Adm.esc(g.img) : placeholderImg('gal-' + g.id)}" alt="${Adm.esc(g.caption)}" loading="lazy"></div>
           <div class="body"><div class="title">${Adm.esc(g.caption)} ${g.featured ? '⭐' : ''}</div><div class="meta">${Adm.esc(g.category)}</div></div>
           <div class="foot">
-            <button class="adm-btn adm-btn-sm adm-btn-outline" data-cap="${g.id}">Edit Caption</button>
+            <button class="adm-btn adm-btn-sm adm-btn-outline" data-cap="${g.id}">Caption</button>
             <button class="adm-btn adm-btn-sm adm-btn-outline" data-feat="${g.id}">${g.featured ? 'Unfeature' : 'Feature'}</button>
-            <button class="adm-btn adm-btn-sm adm-btn-danger" data-del="${g.id}">Delete</button>
+            <button class="adm-icon-action" data-del="${g.id}" title="Delete" aria-label="Delete image">🗑</button>
           </div>
         </div>`).join("");
       qs("#addImg").onclick = () => addItem();
@@ -459,9 +461,9 @@ window.AdmApp = (function () {
       Adm.contentEl().innerHTML = `<div class="adm-toolbar"><div class="adm-spacer"></div><button class="adm-btn adm-btn-primary" id="addMember">+ Add Team Member</button></div><div class="adm-card-grid" id="teamGrid"></div>`;
       qs("#teamGrid").innerHTML = items.map(t => `
         <div class="adm-item-card">
-          <div class="thumb">${t.photo ? `<img src="${Adm.esc(t.photo)}">` : "👷"}</div>
+          <div class="thumb"><img src="${t.photo ? Adm.esc(t.photo) : placeholderImg('team-' + t.id, 400, 400)}" alt="${Adm.esc(t.name)}" loading="lazy"></div>
           <div class="body"><div class="title">${Adm.esc(t.name)}</div><div class="meta">${Adm.esc(t.role)} · ${Adm.esc(t.experience)}</div><div class="meta">${Adm.esc(t.contact)}</div></div>
-          <div class="foot"><button class="adm-btn adm-btn-sm adm-btn-outline" data-edit="${t.id}">Edit</button><button class="adm-btn adm-btn-sm adm-btn-danger" data-del="${t.id}">Remove</button></div>
+          <div class="foot"><button class="adm-btn adm-btn-sm adm-btn-outline" data-edit="${t.id}">Edit</button><button class="adm-icon-action" data-del="${t.id}" title="Remove" aria-label="Remove team member">🗑</button></div>
         </div>`).join("");
       qs("#addMember").onclick = () => openModal(null);
       qsa("[data-edit]").forEach(b => b.onclick = () => openModal(items.find(t => t.id === b.dataset.edit)));
