@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-theme="light">
+<html lang="en" dir="ltr" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,167 +7,136 @@
   
   <!-- FontAwesome & Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   
-  <!-- ColorCraft Stylesheet -->
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- ColorCraft Stylesheets -->
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/responsive.css">
   <link rel="stylesheet" href="../assets/css/dark-mode.css">  
-
-  <style>
-    /* Tabs for Role Switching */
-    .role-tabs {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .role-tab-btn {
-      flex: 1;
-      padding: 10px;
-      border: 1px solid var(--border, #ced4da);
-      background: var(--surface, #ffffff);
-      color: var(--ink, #212529);
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .role-tab-btn.active {
-      background: var(--primary, #0F4C81);
-      color: #ffffff;
-      border-color: var(--primary, #0F4C81);
-    }
-    .password-field-wrap {
-      position: relative;
-    }
-    .password-toggle-btn {
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      color: var(--color-gray-600, #6c757d);
-      cursor: pointer;
-      padding: 4px;
-      font-size: 1.1rem;
-    }
-    .signup-prompt {
-      margin-top: 18px;
-      font-size: 0.9rem;
-      color: var(--color-gray-600, #6c757d);
-    }
-    .signup-prompt a {
-      color: var(--color-primary, #0F4C81);
-      font-weight: 600;
-    }
-    .terms-text {
-      font-size: 0.78rem;
-      color: var(--color-gray-600, #6c757d);
-      margin-top: 16px;
-      line-height: 1.4;
-    }
-    .terms-text a {
-      color: var(--color-primary, #0F4C81);
-      text-decoration: underline;
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/css/rtl.css">  
 </head>
-<body class="login-container">
+<body class="luxury-page-bg">
 
-  <!-- Top Navigation Bar -->
-  <header class="site-header">
-    <div class="container navbar">
-      <a href="index.html" class="brand"><span class="brand-chip"></span>ColorCraft</a>
-
-      <div class="nav-actions">
-        <button type="button" class="icon-toggle" id="theme-toggle" aria-label="Toggle Dark Mode" title="Toggle Theme">
-          <i class="bi bi-moon-stars" id="theme-icon"></i>
-        </button>
-        <button type="button" class="icon-toggle" id="rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL Mode">
-          <i class="bi bi-arrow-left-right"></i>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Signup Card -->
-  <main class="login-card" style="max-width:480px;">
-    
-    <h2 id="signup-title">Host Registration</h2>
-    <p class="subtitle" id="signup-subtitle">Create a host account to manage your property finishing.</p>
-
-    <!-- Role Switcher -->
-    <div class="role-tabs">
-      <button type="button" class="role-tab-btn active" id="tab-host">
-        <i class="fa-solid fa-user me-1"></i> Host Sign Up
-      </button>
-      <button type="button" class="role-tab-btn" id="tab-admin">
-        <i class="fa-solid fa-user-shield me-1"></i> Admin Sign Up
-      </button>
-    </div>
-
-    <!-- Dynamic Form for Host and Admin Registration -->
-    <form class="login-form" id="signup-form">
-      <div class="form-group">
-        <label for="fullname">Full Name <span class="req">*</span></label>
-        <input type="text" id="fullname" class="form-control" placeholder="John Doe" required>
-      </div>
-
-      <div class="form-group">
-        <label for="email">Email Address <span class="req">*</span></label>
-        <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
-      </div>
-
-      <div class="form-group">
-        <label for="phone">Phone Number <span class="req">*</span></label>
-        <input type="tel" id="phone" class="form-control" placeholder="+91 98765 43210" required>
-      </div>
-
-      <div class="form-group" id="role-extra-field">
-        <label for="extra-input" id="extra-label">Property / Business Name <span class="req">*</span></label>
-        <input type="text" id="extra-input" class="form-control" placeholder="e.g. ColorCraft Estates" required>
-      </div>
-
-      <div class="form-group">
-        <label for="password">Password <span class="req">*</span></label>
-        <div class="password-field-wrap">
-          <input type="password" id="password" class="form-control" placeholder="••••••••" required style="padding-right:42px;" minlength="6">
-          <button type="button" class="password-toggle-btn" id="toggle-password" aria-label="Toggle password visibility">
-            <i class="bi bi-eye" id="eye-icon"></i>
-          </button>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="confirm-password">Confirm Password <span class="req">*</span></label>
-        <div class="password-field-wrap">
-          <input type="password" id="confirm-password" class="form-control" placeholder="••••••••" required style="padding-right:42px;" minlength="6">
-          <button type="button" class="password-toggle-btn" id="toggle-confirm-password" aria-label="Toggle confirm password visibility">
-            <i class="bi bi-eye" id="eye-confirm-icon"></i>
-          </button>
-        </div>
-      </div>
-
-      <div class="form-group" style="text-align:left;margin-top:10px;">
-        <label style="display:flex;align-items:flex-start;gap:8px;cursor:pointer;font-size:0.85rem;font-weight:400;color:var(--color-gray-700);">
-          <input type="checkbox" id="accept-terms" required style="margin-top:3px;">
-          <span>I agree to ColorCraft's <a href="#" style="color:var(--color-primary);text-decoration:underline;">Terms of Service</a> &amp; <a href="#" style="color:var(--color-primary);text-decoration:underline;">Privacy Policy</a>.</span>
-        </label>
-      </div>
-
-      <button type="submit" class="btn btn-primary btn-block" id="submit-btn">Create Host Account</button>
+  <main class="luxury-card-container">
+    <div class="luxury-card">
       
-      <!-- Go to Dashboard Button (Available for both Host and Admin) -->
-      <a href="../admin/dashboard.html" class="btn btn-secondary btn-block" style="margin-top:10px;display:flex;align-items:center;justify-content:center;gap:8px;" id="dashboard-btn">
-        <i class="fa-solid fa-gauge"></i> Go to Dashboard
-      </a>
-    </form>
+      <!-- Card Header -->
+      <div class="luxury-header">
+        <a href="index.html" class="luxury-brand">
+          <svg class="luxury-brand-logo" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 4C10.268 4 4 10.268 4 18V32H32V18C32 10.268 25.732 4 18 4Z"/>
+            <path d="M18 10C13.5817 10 10 13.5817 10 18V32H26V18C26 13.5817 22.4183 10 18 10Z"/>
+            <circle cx="18" cy="18" r="2.5" fill="currentColor"/>
+          </svg>
+          <div class="luxury-brand-text">
+            <span class="luxury-brand-title">COLORCRAFT</span>
+            <span class="luxury-brand-sub">PAINTING SERVICES</span>
+          </div>
+        </a>
 
-    <div class="signup-prompt">
-      Already have an account? <a href="login.html">Login</a>
+        <div class="luxury-nav-actions">
+          <button type="button" class="luxury-icon-btn" id="theme-toggle" data-theme-toggle aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+            <i class="bi bi-sun" id="theme-icon"></i>
+          </button>
+          <button type="button" class="luxury-icon-btn" id="rtl-toggle" data-rtl-toggle aria-label="Toggle RTL Mode" title="Toggle Language / RTL">
+            <i class="bi bi-globe"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Title & Subtitle -->
+      <h2 class="luxury-heading" id="signup-title">Host Registration</h2>
+      <p class="luxury-desc" id="signup-subtitle" style="margin-bottom: 20px;">Create a host account to manage your property finishing.</p>
+
+      <!-- Role Switcher Tabs -->
+      <div class="luxury-tabs">
+        <button type="button" class="luxury-tab-btn active" id="tab-host">
+          <i class="fa-solid fa-user me-1"></i> Host Sign Up
+        </button>
+        <button type="button" class="luxury-tab-btn" id="tab-admin">
+          <i class="fa-solid fa-user-shield me-1"></i> Admin Sign Up
+        </button>
+      </div>
+
+      <!-- Auth Form -->
+      <form id="signup-form">
+        <div class="luxury-form-group">
+          <label for="fullname">Full Name <span style="color:var(--color-secondary);">*</span></label>
+          <input type="text" id="fullname" class="luxury-input" placeholder="John Doe" required>
+        </div>
+
+        <div class="luxury-form-group">
+          <label for="email">Email Address <span style="color:var(--color-secondary);">*</span></label>
+          <input type="email" id="email" class="luxury-input" placeholder="name@example.com" required>
+        </div>
+
+        <div class="luxury-form-group">
+          <label for="phone">Phone Number <span style="color:var(--color-secondary);">*</span></label>
+          <input type="tel" id="phone" class="luxury-input" placeholder="+91 98765 43210" required>
+        </div>
+
+        <div class="luxury-form-group" id="role-extra-field">
+          <label for="extra-input" id="extra-label">Property / Business Name <span style="color:var(--color-secondary);">*</span></label>
+          <input type="text" id="extra-input" class="luxury-input" placeholder="e.g. ColorCraft Estates" required>
+        </div>
+
+        <div class="luxury-form-group">
+          <label for="password">Password <span style="color:var(--color-secondary);">*</span></label>
+          <div style="position:relative;">
+            <input type="password" id="password" class="luxury-input" placeholder="••••••••" required style="padding-right:42px;" minlength="6">
+            <button type="button" id="toggle-password" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:#a3c4dc;cursor:pointer;padding:4px;" aria-label="Toggle password visibility">
+              <i class="bi bi-eye" id="eye-icon"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="luxury-form-group">
+          <label for="confirm-password">Confirm Password <span style="color:var(--color-secondary);">*</span></label>
+          <div style="position:relative;">
+            <input type="password" id="confirm-password" class="luxury-input" placeholder="••••••••" required style="padding-right:42px;" minlength="6">
+            <button type="button" id="toggle-confirm-password" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:#a3c4dc;cursor:pointer;padding:4px;" aria-label="Toggle confirm password visibility">
+              <i class="bi bi-eye" id="eye-confirm-icon"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="luxury-form-group" style="margin-top:10px;">
+          <label style="display:flex;align-items:flex-start;gap:8px;cursor:pointer;font-size:0.85rem;font-weight:400;color:#a3c4dc;">
+            <input type="checkbox" id="accept-terms" required style="margin-top:3px;accent-color:var(--color-secondary);">
+            <span>I agree to ColorCraft's <a href="#" style="color:var(--color-secondary);text-decoration:underline;">Terms of Service</a> &amp; <a href="#" style="color:var(--color-secondary);text-decoration:underline;">Privacy Policy</a>.</span>
+          </label>
+        </div>
+
+        <button type="submit" class="luxury-btn-primary" id="submit-btn">Create Host Account</button>
+        
+        <!-- Go to Dashboard Button -->
+        <a href="../admin/dashboard.html" class="luxury-btn-secondary" id="dashboard-btn">
+          <i class="fa-solid fa-gauge"></i> Go to Dashboard
+        </a>
+      </form>
+
+      <div style="margin-top:20px;font-size:0.9rem;color:#a3c4dc;">
+        Already have an account? <a href="login.html" style="color:var(--color-secondary);font-weight:600;text-decoration:underline;">Login</a>
+      </div>
+
+      <hr class="luxury-divider">
+
+      <a href="index.html" class="luxury-pill-btn">
+        <i class="bi bi-arrow-left"></i> Back to Home
+      </a>
+
     </div>
 
+    <!-- Outer Footer -->
+    <div class="luxury-footer">
+      <p>© 2026 ColorCraft. All rights reserved.</p>
+      <p>Developed by <a href="https://abhivorn.com" target="_blank" rel="noopener">Abhivorn Technologies Pvt. Ltd.</a></p>
+    </div>
   </main>
 
   <script>
@@ -189,7 +158,7 @@
       tabAdmin.classList.remove('active');
       signupTitle.textContent = 'Host Registration';
       signupSubtitle.textContent = 'Create a host account to manage your property finishing.';
-      extraLabel.innerHTML = 'Property / Business Name <span class="req">*</span>';
+      extraLabel.innerHTML = 'Property / Business Name <span style="color:var(--color-secondary);">*</span>';
       extraInput.placeholder = 'e.g. ColorCraft Estates';
       submitBtn.textContent = 'Create Host Account';
     });
@@ -201,7 +170,7 @@
       tabHost.classList.remove('active');
       signupTitle.textContent = 'Admin Registration';
       signupSubtitle.textContent = 'Register an administrative access account.';
-      extraLabel.innerHTML = 'Admin Security Key / Access Code <span class="req">*</span>';
+      extraLabel.innerHTML = 'Admin Security Key / Access Code <span style="color:var(--color-secondary);">*</span>';
       extraInput.placeholder = 'Enter Admin Key';
       submitBtn.textContent = 'Create Admin Account';
     });
@@ -245,13 +214,13 @@
       }
     });
 
-    // Dark / Light Theme Toggle Functionality
+    // Theme Toggle Handler
     const themeBtn = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
 
     function applyTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('cc_theme', theme);
+      localStorage.setItem('cc-theme', theme);
       if (theme === 'dark') {
         themeIcon.className = 'bi bi-sun';
       } else {
@@ -259,22 +228,35 @@
       }
     }
 
-    themeBtn.addEventListener('click', () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      applyTheme(newTheme);
-    });
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+      });
+    }
 
-    // RTL Toggle
-    document.getElementById('rtl-toggle').addEventListener('click', () => {
-      const html = document.documentElement;
-      const currentDir = html.getAttribute('dir');
-      html.setAttribute('dir', currentDir === 'rtl' ? 'ltr' : 'rtl');
-    });
+    // RTL Toggle Handler
+    const rtlBtn = document.getElementById('rtl-toggle');
+    function applyRTL(dir) {
+      document.documentElement.setAttribute('dir', dir);
+      localStorage.setItem('cc-dir', dir);
+    }
 
-    // Restore Saved Theme on Page Load
-    const savedTheme = localStorage.getItem('cc_theme') || 'light';
+    if (rtlBtn) {
+      rtlBtn.addEventListener('click', () => {
+        const currentDir = document.documentElement.getAttribute('dir') || 'ltr';
+        const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
+        applyRTL(newDir);
+      });
+    }
+
+    // Restore Saved Theme & RTL State
+    const savedTheme = localStorage.getItem('cc-theme') || 'dark';
     applyTheme(savedTheme);
+
+    const savedDir = localStorage.getItem('cc-dir') || 'ltr';
+    applyRTL(savedDir);
   </script>
 
 </body>

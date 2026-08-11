@@ -1,65 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Page Not Found | ColorCraft</title>
+<title>404 Page Not Found | ColorCraft</title>
 <meta name="description" content="The page you're looking for has moved or no longer exists.">
 <meta property="og:title" content="Page Not Found | ColorCraft">
 <meta property="og:description" content="The page you're looking for has moved or no longer exists.">
 <meta property="og:type" content="website">
+
+<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 <link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="../assets/css/responsive.css">
 <link rel="stylesheet" href="../assets/css/dark-mode.css">
 <link rel="stylesheet" href="../assets/css/rtl.css">
 </head>
-<body>
+<body class="luxury-page-bg">
 
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<header class="site-header">
-  <div class="container navbar">
-    <a href="index.html" class="brand"><span class="brand-chip"></span>ColorCraft</a>
+  <main class="luxury-card-container">
+    <div class="luxury-card">
+      
+      <!-- Card Header -->
+      <div class="luxury-header">
+        <a href="index.html" class="luxury-brand">
+          <svg class="luxury-brand-logo" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 4C10.268 4 4 10.268 4 18V32H32V18C32 10.268 25.732 4 18 4Z"/>
+            <path d="M18 10C13.5817 10 10 13.5817 10 18V32H26V18C26 13.5817 22.4183 10 18 10Z"/>
+            <circle cx="18" cy="18" r="2.5" fill="currentColor"/>
+          </svg>
+          <div class="luxury-brand-text">
+            <span class="luxury-brand-title">COLORCRAFT</span>
+            <span class="luxury-brand-sub">PAINTING SERVICES</span>
+          </div>
+        </a>
 
-    <div class="nav-actions">
-      <button class="icon-toggle" data-theme-toggle aria-label="Toggle dark mode">
-        <i class="bi bi-moon-stars"></i>
-      </button>
-
-      <button class="icon-toggle" data-rtl-toggle aria-label="Toggle RTL">
-        <i class="bi bi-arrow-left-right"></i>
-      </button>
-    </div>
-  </div>
-</header>
-<main id="main-content">
-  <div class="error-page">
-    <div class="container" style="max-width:560px;">
-      <div class="error-illustration">
-        <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
-          <rect x="20" y="20" width="260" height="160" rx="16" fill="#E5EEF5"/>
-          <circle cx="90" cy="90" r="26" fill="#F4A261"/>
-          <rect x="150" y="70" width="100" height="14" rx="7" fill="#0F4C81"/>
-          <rect x="150" y="96" width="70" height="14" rx="7" fill="#2A9D8F"/>
-          <path d="M40 150c40-30 60-30 100-8s90 20 120-4" stroke="#0F4C81" stroke-width="5" fill="none" stroke-linecap="round"/>
-        </svg>
+        <div class="luxury-nav-actions">
+          <button type="button" class="luxury-icon-btn" id="theme-toggle" data-theme-toggle aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+            <i class="bi bi-sun" id="theme-icon"></i>
+          </button>
+          <button type="button" class="luxury-icon-btn" id="rtl-toggle" data-rtl-toggle aria-label="Toggle RTL Mode" title="Toggle Language / RTL">
+            <i class="bi bi-globe"></i>
+          </button>
+        </div>
       </div>
-      <span class="eyebrow" style="justify-content:center;">Error 404</span>
-      <h1>Looks Like This Wall Hasn't Been Painted Yet</h1>
-      <p style="color:var(--color-gray-600);font-size:1.05rem;">The page you're looking for has moved, been renamed, or never existed. Let's get you back on track.</p>
-      <div class="hero-actions" style="justify-content:center;margin-top:26px;">
-        <a href="index.html" class="btn btn-primary">Back to Home</a>
-        <a href="quote.html" class="btn btn-secondary">Get Free Quote</a>
-      </div>
+
+      <!-- Main Body -->
+      <h1 class="luxury-404-num">404</h1>
+      <h2 class="luxury-heading">Oops! Page Not Found</h2>
+      <p class="luxury-desc">The wall or page you're looking for isn't in this wing of ColorCraft.<br>Let's get you back on track.</p>
+      
+      <hr class="luxury-divider">
+
+      <a href="index.html" class="luxury-pill-btn">
+        <i class="bi bi-arrow-left"></i> Back to Home
+      </a>
+
     </div>
-  </div>
-</main>
-<button class="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
-<div class="toast"><strong>Title</strong><span>Message</span></div>
-<script src="../assets/js/main.js"></script>
-<script src="../assets/js/quote.js"></script>
-<script src="../assets/js/gallery.js"></script>
+
+    <!-- Outer Footer -->
+    <div class="luxury-footer">
+      <p>© 2026 ColorCraft. All rights reserved.</p>
+      <p>Developed by <a href="https://abhivorn.com" target="_blank" rel="noopener">Abhivorn Technologies Pvt. Ltd.</a></p>
+    </div>
+  </main>
+
+  <script>
+    // Theme Toggle Handler
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('cc-theme', theme);
+      if (theme === 'dark') {
+        themeIcon.className = 'bi bi-sun';
+      } else {
+        themeIcon.className = 'bi bi-moon-stars';
+      }
+    }
+
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+      });
+    }
+
+    // RTL Toggle Handler
+    const rtlBtn = document.getElementById('rtl-toggle');
+    function applyRTL(dir) {
+      document.documentElement.setAttribute('dir', dir);
+      localStorage.setItem('cc-dir', dir);
+    }
+
+    if (rtlBtn) {
+      rtlBtn.addEventListener('click', () => {
+        const currentDir = document.documentElement.getAttribute('dir') || 'ltr';
+        const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
+        applyRTL(newDir);
+      });
+    }
+
+    // Restore Saved Theme & RTL State
+    const savedTheme = localStorage.getItem('cc-theme') || 'dark';
+    applyTheme(savedTheme);
+
+    const savedDir = localStorage.getItem('cc-dir') || 'ltr';
+    applyRTL(savedDir);
+  </script>
+
 </body>
 </html>

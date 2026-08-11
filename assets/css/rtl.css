@@ -276,3 +276,43 @@ html[dir="rtl"] .nav-links a i {
     right: -32px;
   }
 }
+
+/* ---------- Luxury Card Layouts RTL Support ---------- */
+html[dir="rtl"] .luxury-header {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .luxury-brand {
+  text-align: right;
+  flex-direction: row;
+}
+
+html[dir="rtl"] .luxury-form-group {
+  text-align: right;
+}
+
+html[dir="rtl"] .luxury-form-group label {
+  text-align: right;
+}
+
+html[dir="rtl"] .luxury-input {
+  text-align: right;
+}
+
+html[dir="rtl"] .luxury-newsletter-form {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .luxury-newsletter-input {
+  text-align: right;
+}
+
+html[dir="rtl"] .luxury-pill-btn i.bi-arrow-left {
+  transform: scaleX(-1);
+  display: inline-block;
+}
+
+html[dir="rtl"] .luxury-footer {
+  text-align: center;
+}
+
