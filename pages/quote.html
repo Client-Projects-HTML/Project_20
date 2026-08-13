@@ -36,7 +36,6 @@
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="gallery.html">Gallery</a>
-      <a href="pricing.html">Pricing</a>
       <a href="contact.html">Contact</a>
       <!-- <a href="faq.html">FAQ</a> -->
           <a href="quote.html" class="btn btn-primary btn-sm nav-mobile-cta">Get Free Quote</a>
@@ -76,24 +75,25 @@
         <div class="form-row">
           <div class="form-group">
             <label for="q-name">Full Name <span class="req">*</span></label>
-            <input type="text" id="q-name" class="form-control" required>
+            <input type="text" id="q-name" class="form-control" placeholder="Full Name" required>
             <div class="error-msg">Please enter your name.</div>
           </div>
           <div class="form-group">
             <label for="q-email">Email <span class="req">*</span></label>
-            <input type="email" id="q-email" class="form-control" required>
+            <input type="email" id="q-email" class="form-control" placeholder="Email Address" required>
             <div class="error-msg">Please enter a valid email.</div>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label for="q-phone">Phone <span class="req">*</span></label>
-            <input type="tel" id="q-phone" class="form-control" required>
+            <input type="tel" id="q-phone" class="form-control" placeholder="Phone Number" required>
             <div class="error-msg">Please enter a valid phone number.</div>
           </div>
           <div class="form-group">
             <label for="q-property">Property Type</label>
             <select id="q-property" class="form-control">
+              <option value="">Select Property Type</option>
               <option>Apartment</option><option>Independent House</option><option>Office</option><option>Retail / Commercial</option>
             </select>
           </div>
@@ -102,7 +102,7 @@
           <div class="form-group">
             <label for="q-service">Service Required <span class="req">*</span></label>
             <select id="q-service" class="form-control" required>
-              <option value="">Select a service</option>
+              <option value="">Select Service</option>
               <option>Interior Painting</option><option>Exterior Painting</option><option>Wall Textures</option>
               <option>Waterproof Coating</option><option>Wood Polish</option><option>Metal Painting</option>
               <option>Wallpaper Installation</option><option>Color Consultation</option>
@@ -111,7 +111,7 @@
           </div>
           <div class="form-group">
             <label for="q-area">Area (sq.ft)</label>
-            <input type="number" min="1" id="q-area" class="form-control">
+            <input type="number" min="1" id="q-area" class="form-control" placeholder="e.g. 1200">
           </div>
         </div>
         <div class="form-row">
@@ -122,13 +122,14 @@
           <div class="form-group">
             <label for="q-budget">Budget</label>
             <select id="q-budget" class="form-control">
+              <option value="">Select Budget</option>
               <option>Under ₹25,000</option><option>₹25,000 – ₹75,000</option><option>₹75,000 – ₹2,00,000</option><option>Above ₹2,00,000</option>
             </select>
           </div>
         </div>
         <div class="form-group">
           <label for="q-message">Message</label>
-          <textarea id="q-message" class="form-control" placeholder="Tell us more about your project..."></textarea>
+          <textarea id="q-message" class="form-control" placeholder="Project details..."></textarea>
         </div>
         <div class="form-group">
           <label>Upload Property Images</label>
@@ -162,9 +163,10 @@
         <h4>Quick Links</h4>
         <ul>
           <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="faq.html">FAQ</a></li>
-          <li><a href="contact.html">Contact</a></li>
           <li><a href="coming-soon.html">Premium Services</a></li>
           <li><a href="404.html">Privacy Policy</a></li>
         </ul>
