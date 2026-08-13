@@ -38,8 +38,9 @@
   section { padding: 48px 0; }
   
   /* Hamburger Navigation for Tablet & Mobile */
-  .site-header .container { padding: 18px 24px; }
-  .navbar { padding: 18px 0; gap: 12px; }
+  .site-header { position: -webkit-sticky !important; position: sticky !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 1000 !important; }
+  .site-header .container { padding: 14px 24px; }
+  .navbar { padding: 0; gap: 12px; }
   .brand { font-size: 1.25rem; gap: 8px; }
   .brand .brand-chip { width: 28px; height: 28px; border-radius: 7px; }
   .nav-links { display: none; }
@@ -172,8 +173,8 @@
 
   /* Container & Navbar Alignment */
   .container { padding: 0 14px; }
-  .site-header .container { padding: 16px 20px; }
-  .navbar { padding: 16px 0; gap: 8px; }
+  .site-header .container { padding: 12px 16px; }
+  .navbar { padding: 0; gap: 8px; }
   
   /* Brand Logos & Header Text Scaling */
   .brand { font-size: 1.12rem; gap: 6px; }
@@ -284,7 +285,7 @@
   }
   .hero {
     min-height: auto;
-    padding: 86px 14px 32px;
+    padding: 76px 14px 32px;
   }
   .hero-premium2 {
     min-height: auto !important;
@@ -354,8 +355,8 @@
   .hero-title, .hero-content h1, .hero h1 { font-size: 1.25rem !important; }
   .hero-content p.lead, .hero p.lead { font-size: 0.78rem !important; }
 
-  .site-header .container { padding: 14px 18px; }
-  .navbar { padding: 14px 0; gap: 6px; }
+  .site-header .container { padding: 10px 14px; }
+  .navbar { padding: 0; gap: 6px; }
   .brand { font-size: 1.05rem; gap: 6px; }
   .brand .brand-chip { width: 22px; height: 22px; }
   .luxury-brand-logo { width: 25px !important; height: 25px !important; }
@@ -389,8 +390,8 @@
 /* ---------- SMALL MOBILE (S: < 380px) ---------- */
 @media (max-width: 380px) {
   html { font-size: 13px; }
-  .site-header .container { padding: 12px 16px; }
-  .navbar { padding: 12px 0; gap: 6px; }
+  .site-header .container { padding: 10px 12px; }
+  .navbar { padding: 0; gap: 6px; }
   .brand { font-size: 0.98rem; gap: 5px; }
   .brand .brand-chip { width: 20px; height: 20px; border-radius: 4px; }
   

@@ -46,7 +46,9 @@
 
 /* ---------- Reset ---------- */
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+html, body {
+  overflow-x: clip;
+}
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -54,7 +56,6 @@ body {
   background: var(--color-bg);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
@@ -166,13 +167,19 @@ section { padding: 30px 0; }
 
 /* ---------- Navbar ---------- */
 .site-header {
-  position: fixed;
+  position: -webkit-sticky;
+  position: sticky;
   top: 0; left: 0; right: 0;
+  width: 100%;
   z-index: 1000;
   background: rgba(248, 249, 250, 0.92);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
   transition: box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
 }
 .site-header.scrolled { box-shadow: var(--shadow-sm); border-color: var(--color-gray-200); }
 
