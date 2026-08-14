@@ -247,7 +247,7 @@
     shell.innerHTML = `
       <aside class="adm-sidebar" id="admSidebar">
         <div class="adm-brand">
-          <span class="adm-brand-mark">${CFG.brandInitial}</span>
+          <span class="adm-brand-mark"><img src="../assets/images/logo-icon.svg" alt="ColorCraft Logo" style="width:28px;height:28px;object-fit:contain;"></span>
           <span class="adm-brand-name">${CFG.brandName}<small>Admin Panel</small></span>
         </div>
         <nav class="adm-nav">

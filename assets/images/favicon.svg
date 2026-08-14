@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="swatch1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="swatch2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="swatch3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="swatch4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#f472b6"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Base Rounded Container -->
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#bgGrad)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+
+  <!-- Overlapping Color Swatch Diamond Art -->
+  <g transform="translate(32, 32) rotate(45)" filter="url(#shadow)">
+    <!-- Top Swatch -->
+    <rect x="-14" y="-14" width="13" height="13" rx="3.5" fill="url(#swatch1)"/>
+    <!-- Right Swatch -->
+    <rect x="1" y="-14" width="13" height="13" rx="3.5" fill="url(#swatch2)"/>
+    <!-- Bottom Swatch -->
+    <rect x="1" y="1" width="13" height="13" rx="3.5" fill="url(#swatch3)"/>
+    <!-- Left Swatch -->
+    <rect x="-14" y="1" width="13" height="13" rx="3.5" fill="url(#swatch4)"/>
+    
+    <!-- Central Metallic Accent Ring -->
+    <circle cx="0" cy="0" r="3.5" fill="#ffffff"/>
+    <circle cx="0" cy="0" r="2" fill="#0f172a"/>
+  </g>
+</svg>

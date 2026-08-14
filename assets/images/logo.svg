@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" width="220" height="48">
+  <defs>
+    <linearGradient id="logoGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="logoGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="logoGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="logoGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#f472b6"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Logo Mark -->
+  <g transform="translate(24, 24) rotate(45)">
+    <rect x="-13" y="-13" width="12" height="12" rx="3" fill="url(#logoGrad1)"/>
+    <rect x="1" y="-13" width="12" height="12" rx="3" fill="url(#logoGrad2)"/>
+    <rect x="1" y="1" width="12" height="12" rx="3" fill="url(#logoGrad3)"/>
+    <rect x="-13" y="1" width="12" height="12" rx="3" fill="url(#logoGrad4)"/>
+    <circle cx="0" cy="0" r="3" fill="#ffffff"/>
+    <circle cx="0" cy="0" r="1.5" fill="#0f172a"/>
+  </g>
+
+  <!-- Brand Typography -->
+  <text x="50" y="27" font-family="'Poppins', 'Montserrat', sans-serif" font-weight="800" font-size="21" letter-spacing="-0.3">
+    <tspan fill="url(#textGrad)">Color</tspan><tspan fill="currentColor">Craft</tspan>
+  </text>
+  
+  <text x="51" y="38" font-family="'Montserrat', sans-serif" font-weight="600" font-size="7.5" fill="#64748b" letter-spacing="1.5">
+    PAINT &amp; WALL FINISHING
+  </text>
+</svg>

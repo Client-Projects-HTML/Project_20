@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" width="220" height="48">
+  <defs>
+    <linearGradient id="dkGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="dkGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0891b2"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="dkGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="dkGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#db2777"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="dkTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#0891b2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Logo Mark -->
+  <g transform="translate(24, 24) rotate(45)">
+    <rect x="-13" y="-13" width="12" height="12" rx="3" fill="url(#dkGrad1)"/>
+    <rect x="1" y="-13" width="12" height="12" rx="3" fill="url(#dkGrad2)"/>
+    <rect x="1" y="1" width="12" height="12" rx="3" fill="url(#dkGrad3)"/>
+    <rect x="-13" y="1" width="12" height="12" rx="3" fill="url(#dkGrad4)"/>
+    <circle cx="0" cy="0" r="3" fill="#ffffff"/>
+    <circle cx="0" cy="0" r="1.5" fill="#0f172a"/>
+  </g>
+
+  <!-- Brand Typography for Light Backgrounds -->
+  <text x="50" y="27" font-family="'Poppins', 'Montserrat', sans-serif" font-weight="800" font-size="21" letter-spacing="-0.3">
+    <tspan fill="url(#dkTextGrad)">Color</tspan><tspan fill="#0f172a">Craft</tspan>
+  </text>
+  
+  <text x="51" y="38" font-family="'Montserrat', sans-serif" font-weight="600" font-size="7.5" fill="#475569" letter-spacing="1.5">
+    PAINT &amp; WALL FINISHING
+  </text>
+</svg>

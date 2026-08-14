@@ -61,21 +61,33 @@
     }
   }
   // Automatically inject favicon on every page
-(function injectFavicon() {
-  const head = document.head;
+  (function injectFavicon() {
+    const head = document.head;
+    if (!head) return;
 
-  // Path relative to the site root or assets folder
-  const faviconPath = '../assets/images/favicon.jpeg';
+    // Check if relative path needs single or double dot parent based on location
+    const isSubPage = window.location.pathname.includes('/pages/') || window.location.pathname.includes('/admin/');
+    const basePath = isSubPage ? '../assets/images/' : 'assets/images/';
 
-  // Check if a favicon link already exists
-  if (!document.querySelector("link[rel*='icon']")) {
-    const link = document.createElement('link');
-    link.type = 'image/x-icon';
-    link.rel = 'shortcut icon';
-    link.href = faviconPath;
-    head.appendChild(link);
-  }
-})();
+    if (!document.querySelector("link[rel*='icon']")) {
+      const svgLink = document.createElement('link');
+      svgLink.rel = 'icon';
+      svgLink.type = 'image/svg+xml';
+      svgLink.href = basePath + 'favicon.svg';
+      head.appendChild(svgLink);
+
+      const pngLink = document.createElement('link');
+      pngLink.rel = 'alternate icon';
+      pngLink.type = 'image/png';
+      pngLink.href = basePath + 'favicon-32x32.png';
+      head.appendChild(pngLink);
+
+      const appleLink = document.createElement('link');
+      appleLink.rel = 'apple-touch-icon';
+      appleLink.href = basePath + 'apple-touch-icon.png';
+      head.appendChild(appleLink);
+    }
+  })();
 
   /* ---------- RTL toggle ---------- */
   function initRTLToggle() {

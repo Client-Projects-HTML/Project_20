@@ -160,7 +160,7 @@ window.ADMIN_CONFIG = {
       facebook: "https://facebook.com/colorcraft", instagram: "https://instagram.com/colorcraft",
       map: "MG Road, Pune", hours: "Mon–Sat: 9:00 AM – 7:00 PM",
       footer: "ColorCraft brings expert painting and wall-finishing services to your doorstep.",
-      logo: "", favicon: ""
+      logo: "../assets/images/logo.svg", favicon: "../assets/images/favicon.svg"
     });
     Adm.seedIfEmpty("profile", { name: "Admin User", email: "admin@colorcraft.example.com", photo: "", lastLogin: new Date().toISOString() });
   };

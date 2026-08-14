@@ -42,7 +42,7 @@
   .site-header .container { padding: 14px 24px; }
   .navbar { padding: 0; gap: 12px; }
   .brand { font-size: 1.25rem; gap: 8px; }
-  .brand .brand-chip { width: 28px; height: 28px; border-radius: 7px; }
+  .brand .brand-chip, .brand .brand-logo-icon { width: 28px; height: 28px; border-radius: 7px; }
   .nav-links { display: none; }
   .icon-toggle { width: 38px; height: 38px; min-width: 38px; min-height: 38px; font-size: 1.05rem; }
   .nav-toggle { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 40px; height: 40px; min-height: 40px; min-width: 40px; font-size: 1.25rem; }
@@ -178,7 +178,7 @@
   
   /* Brand Logos & Header Text Scaling */
   .brand { font-size: 1.12rem; gap: 6px; }
-  .brand .brand-chip { width: 24px; height: 24px; border-radius: 5px; }
+  .brand .brand-chip, .brand .brand-logo-icon { width: 24px; height: 24px; border-radius: 5px; }
   .luxury-brand { gap: 6px; }
   .luxury-brand-logo { width: 28px !important; height: 28px !important; }
   .luxury-brand-title { font-size: 0.98rem !important; }
@@ -294,7 +294,9 @@
 
   /* Grids & Structural Layouts */
   .grid-6, .grid-4, .grid-3, .grid-2, .form-row { grid-template-columns: 1fr !important; gap: 14px; }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .gallery-item { aspect-ratio: 1 / 1 !important; width: 100% !important; height: auto !important; position: relative; overflow: hidden; }
+  .gallery-item img, .gallery-item .ph { width: 100% !important; height: 100% !important; object-fit: cover !important; }
   .color-swatch-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
   .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .process-track, .process-track2 { grid-template-columns: 1fr; row-gap: 16px; }
@@ -358,7 +360,7 @@
   .site-header .container { padding: 10px 14px; }
   .navbar { padding: 0; gap: 6px; }
   .brand { font-size: 1.05rem; gap: 6px; }
-  .brand .brand-chip { width: 22px; height: 22px; }
+  .brand .brand-chip, .brand .brand-logo-icon { width: 22px; height: 22px; }
   .luxury-brand-logo { width: 25px !important; height: 25px !important; }
   .luxury-brand-title { font-size: 0.92rem !important; }
   .luxury-brand-sub { font-size: 0.55rem !important; }
@@ -393,7 +395,7 @@
   .site-header .container { padding: 10px 12px; }
   .navbar { padding: 0; gap: 6px; }
   .brand { font-size: 0.98rem; gap: 5px; }
-  .brand .brand-chip { width: 20px; height: 20px; border-radius: 4px; }
+  .brand .brand-chip, .brand .brand-logo-icon { width: 20px; height: 20px; border-radius: 4px; }
   
   .luxury-brand-logo { width: 22px !important; height: 22px !important; }
   .luxury-brand-title { font-size: 0.88rem !important; }
